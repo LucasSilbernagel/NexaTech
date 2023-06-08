@@ -1,18 +1,19 @@
 import { defineField } from "sanity";
 
 export default {
-  name: 'navbar',
+  name: 'homepage',
   type: 'document',
-	title: 'Navbar',
+	title: 'Homepage',
   fields: [
+    {type: 'string', name: 'heroTitle'},
     defineField({
       type: 'object',
-      name: 'logoLink',
+      name: 'heroLink',
       fields: [
-        {type: 'image', name: 'image'},
-        {type: 'string', name: 'ariaLabel'},
+        {type: 'string', name: 'text'},
         {type: 'string', name: 'url'}
       ]
-    })
+    }),
+    {type: 'image', name: 'heroImage'},
   ]
 }

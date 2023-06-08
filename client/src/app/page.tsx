@@ -1,36 +1,34 @@
 import Image from 'next/image'
-import { createClient, groq } from 'next-sanity'
+import { groq } from 'next-sanity'
 import { cache } from 'react'
-
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID // "pv8y60vp"
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET // "production"
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION // "2023-05-03"
-
-const client = createClient({
-  projectId,
-  dataset,
-  apiVersion, // https://www.sanity.io/docs/api-versioning
-  useCdn: true, // if you're using ISR or only static generation at build time then you can set this to `false` to guarantee no stale content
-})
+import customClient from './customClient'
+import Link from 'next/link'
 
 // Wrap the cache function in a way that reuses the TypeScript definitions
-const clientFetch = cache(client.fetch.bind(client))
+const clientFetch = cache(customClient.fetch.bind(customClient))
 
 export default async function Home() {
-  // Now use it just like before, fully deduped, cached and optimized by react
-  const navBarLogo = await clientFetch(
-    groq`*[type == sanity.imageAsset && originalFilename == 'logo.png']`
+  const navBarData = await clientFetch(
+    groq`*[_type == 'navbar']{
+      "logoLinkUrl": logoLink.url,
+      "logoLinkAriaLabel": logoLink.ariaLabel,
+      "logoLinkImage": logoLink.image.asset->url
+    }`
   )
-  console.log(navBarLogo)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-        <Image
-          src={navBarLogo[0].url}
-          alt="Sanity image"
-          width={100}
-          height={24}
-        />
+        <Link
+          href={navBarData[0].logoLinkUrl}
+          aria-label={navBarData[0].logoLinkAriaLabel}
+        >
+          <Image
+            src={navBarData[0].logoLinkImage}
+            alt="Sanity image"
+            width={100}
+            height={24}
+          />
+        </Link>
       </div>
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
