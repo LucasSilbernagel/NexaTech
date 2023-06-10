@@ -15,6 +15,15 @@ export default async function Home() {
       "logoLinkImage": logoLink.image.asset->url
     }`
   )
+  const homePageData = await clientFetch(
+    groq`*[_type == 'homepage']{
+      "heroTitle": heroTitle,
+      "heroLinkUrl": heroLink.url,
+      "heroLinkText": heroLink.text,
+      "heroImage": heroImage.asset->url
+    }`
+  )
+  console.log(homePageData)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
@@ -22,14 +31,36 @@ export default async function Home() {
           href={navBarData[0].logoLinkUrl}
           aria-label={navBarData[0].logoLinkAriaLabel}
         >
-          <Image
-            src={navBarData[0].logoLinkImage}
-            alt="Sanity image"
-            width={100}
-            height={24}
-          />
+          <div className="w-[100px]">
+            <Image
+              src={navBarData[0].logoLinkImage}
+              alt="Sanity image"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
         </Link>
       </div>
+      <section className="flex flex-row-reverse">
+        <div>
+          <Image
+            src={homePageData[0].heroImage}
+            alt="NexaHub"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+        <div>
+          <h1 className="text-4xl text-center">{homePageData[0].heroTitle}</h1>
+          <Link className="underline" href={homePageData[0].heroLinkUrl}>
+            {homePageData[0].heroLinkText}
+          </Link>
+        </div>
+      </section>
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
