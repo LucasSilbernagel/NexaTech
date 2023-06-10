@@ -5,6 +5,9 @@ export default {
   type: 'document',
 	title: 'Homepage',
   fields: [
+    {type: 'string', name: 'seoTitle'},
+    {type: 'text', name: 'seoDescription'},
+    {type: 'image', name: 'seoImage'},
     {type: 'string', name: 'heroTitle'},
     defineField({
       type: 'object',
