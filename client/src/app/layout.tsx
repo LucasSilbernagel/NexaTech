@@ -1,3 +1,5 @@
+import { Figtree } from 'next/font/google'
+const figtree = Figtree({ subsets: ['latin'] })
 import './globals.css'
 
 export default function RootLayout({
@@ -7,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={figtree.className}>{children}</body>
     </html>
   )
 }
