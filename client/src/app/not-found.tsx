@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import CommonWrapper from './CommonWrapper'
+import CommonWrapper from './components/CommonWrapper'
 import { Metadata } from 'next'
 import { clientFetch } from './clientFetch'
 import { groq } from 'next-sanity'

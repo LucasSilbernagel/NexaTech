@@ -1,4 +1,5 @@
-import RootLayout from './layout'
+import RootLayout from '../layout'
+import Navbar from './Navbar/Navbar'
 
 export default function CommonWrapper({
   children,
@@ -8,7 +9,8 @@ export default function CommonWrapper({
   return (
     <RootLayout>
       <header>
-        <p>This is the header</p>
+        {/* @ts-expect-error Server Component */}
+        <Navbar />
       </header>
       <main>{children}</main>
       <footer>

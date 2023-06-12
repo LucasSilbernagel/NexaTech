@@ -3,7 +3,7 @@ import { groq } from 'next-sanity'
 import Link from 'next/link'
 import { clientFetch } from './clientFetch'
 import { Metadata } from 'next'
-import CommonWrapper from './CommonWrapper'
+import CommonWrapper from './components/CommonWrapper'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -35,13 +35,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function page() {
-  const navBarData = await clientFetch(
-    groq`*[_type == 'navbar']{
-      "logoLinkUrl": logoLink.url,
-      "logoLinkAriaLabel": logoLink.ariaLabel,
-      "logoLinkImage": logoLink.image.asset->url
-    }`
-  )
   const homePageData = await clientFetch(
     groq`*[_type == 'homepage']{
       "heroTitle": heroTitle,
@@ -53,23 +46,6 @@ export default async function page() {
   return (
     <CommonWrapper>
       <div>
-        <div>
-          <Link
-            href={navBarData[0].logoLinkUrl}
-            aria-label={navBarData[0].logoLinkAriaLabel}
-          >
-            <div className="w-[100px]">
-              <Image
-                src={navBarData[0].logoLinkImage}
-                alt="Sanity image"
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: '100%', height: 'auto' }}
-              />
-            </div>
-          </Link>
-        </div>
         <section className="flex flex-row-reverse">
           <div>
             <Image
