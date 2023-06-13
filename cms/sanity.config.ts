@@ -12,6 +12,10 @@ export default defineConfig({
 
   plugins: [deskTool(), visionTool()],
 
+  document: {
+    actions: (prev) => prev.filter(action => action.action !== 'delete' && action.action !== 'duplicate' && action.action !== 'unpublish')
+  },
+
   schema: {
     types: schemaTypes,
   },
