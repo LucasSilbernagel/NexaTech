@@ -1,0 +1,4 @@
+.Navbar__desktop__link:hover,
+.Navbar__desktop__link:focus {
+  @apply underline decoration-themeGreen-2 decoration-4 underline-offset-8;
+}
