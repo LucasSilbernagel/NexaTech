@@ -68,7 +68,7 @@ export default function Navbar() {
   if (navBarData.length > 0) {
     return (
       <nav className="bg-themeYellow-1">
-        <div className="flex justify-between py-6 px-4 md:px-12">
+        <div className="flex justify-between items-center py-6 px-4 md:px-12">
           <ul className="flex justify-between gap-10 items-center uppercase font-semibold tracking-wide">
             <li>
               <Link
@@ -131,6 +131,7 @@ export default function Navbar() {
               }`}
               data-testid="mobile-menu-button"
             >
+              <span></span>
               <span></span>
               <span></span>
               <span></span>
