@@ -2,3 +2,42 @@
 .Navbar__desktop__link:focus {
   @apply underline decoration-themeGreen-2 decoration-4 underline-offset-8;
 }
+
+.MobileMenu__Button {
+  @apply flex md:hidden flex-col items-end w-[60px] px-3 relative;
+}
+
+.MobileMenu__Button span {
+  @apply bg-themeGreen-1 rounded-lg h-[2px] my-[4px];
+  transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.MobileMenu__Button span:nth-of-type(1){
+  @apply w-full;
+}
+
+.MobileMenu__Button span:nth-of-type(2){
+  @apply w-9/12;
+}
+
+.MobileMenu__Button span:nth-of-type(3){
+  @apply w-1/2;
+}
+
+.MobileMenu__Button__open span:nth-of-type(1){
+  transform-origin: bottom;
+  transform: rotate(45deg) translate(8px,0px);
+}
+
+.MobileMenu__Button__open span:nth-of-type(2){
+  @apply w-full;
+  transform-origin: top;
+  transform: rotate(-45deg);
+  transform: translate(6px, -4px) rotate(-45deg);
+}
+
+.MobileMenu__Button__open span:nth-of-type(3){
+  @apply w-1/2;
+  transform-origin: bottom;
+  transform: translate(4px, -20px) rotate(-45deg);
+}

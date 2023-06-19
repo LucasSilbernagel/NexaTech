@@ -28,6 +28,43 @@ export default function Navbar() {
       .catch(console.error)
   }, [])
 
+  const [currentScrollPos, setCurrentScrollPos] = useState(0)
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  const [isNavVisible, setIsNavVisible] = useState(true)
+  const [isMenuOpening, setIsMenuOpening] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const handleScroll = () => {
+    setCurrentScrollPos(window.pageYOffset)
+    setPrevScrollPos(currentScrollPos)
+    setIsNavVisible(prevScrollPos > currentScrollPos || currentScrollPos < 70)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [prevScrollPos, isNavVisible, handleScroll])
+
+  useEffect(() => {
+    if (isMenuOpening) {
+      /** Close menu when Escape key is pressed */
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          setIsMenuOpening(false)
+        }
+      })
+      setIsMenuOpen(true)
+      /** Prevent scrolling when the menu is open. */
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.removeEventListener('keydown', (e) => e.key === 'Escape')
+      document.body.style.overflow = 'scroll'
+      setTimeout(() => {
+        setIsMenuOpen(false)
+      }, 500)
+    }
+  }, [isMenuOpening])
+
   if (navBarData.length > 0) {
     return (
       <nav className="bg-themeYellow-1">
@@ -79,6 +116,24 @@ export default function Navbar() {
               onClick={() => alert('Products available for purchase soon!')}
             >
               <FaShoppingCart />
+            </button>
+          </div>
+          <div
+            className={`flex md:hidden ${
+              isNavVisible ? 'top-0' : 'top-[-100px]'
+            }`}
+          >
+            <button
+              aria-expanded={isMenuOpening}
+              onClick={() => setIsMenuOpening(!isMenuOpen)}
+              className={`${styles.MobileMenu__Button} ${
+                isMenuOpening ? `${styles.MobileMenu__Button__open}` : ''
+              }`}
+              data-testid="mobile-menu-button"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
           </div>
         </div>
