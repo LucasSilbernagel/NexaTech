@@ -29,6 +29,20 @@ module.exports = {
           2: '#F5F5F5',
         },
       },
+      keyframes: {
+        slideIn: {
+          '0%': { right: '-770px' },
+          '100%': { right: '0' },
+        },
+        slideOut: {
+          '0%': { right: '0' },
+          '100%': { right: '-770px' },
+        },
+      },
+      animation: {
+        'slide-in': 'slideIn 300ms ease-in-out',
+        'slide-out': 'slideOut 300ms ease-in-out',
+      },
     },
   },
   plugins: [],

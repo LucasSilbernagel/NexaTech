@@ -1,6 +1,16 @@
 .Navbar__desktop__link:hover,
-.Navbar__desktop__link:focus {
+.Navbar__mobile__link:hover,
+.Navbar__desktop__link:focus,
+.Navbar__mobile__link:focus {
   @apply underline decoration-themeGreen-2 decoration-4 underline-offset-8;
+}
+
+.Navbar__mobile__link {
+  @apply px-12 relative;
+}
+
+.Navbar__mobile__link:after {
+  @apply absolute content-[''] h-[1px] w-[90vw] bg-gray-300 -bottom-2 left-4;
 }
 
 .MobileMenu__Button {

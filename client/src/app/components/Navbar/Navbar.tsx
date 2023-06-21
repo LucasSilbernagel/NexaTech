@@ -67,7 +67,13 @@ export default function Navbar() {
 
   if (navBarData.length > 0) {
     return (
-      <nav className="bg-themeYellow-1">
+      <nav className="bg-themeYellow-1 relative">
+        {isMenuOpen && (
+          <div
+            className="w-full h-screen absolute -top-36"
+            onClick={() => setIsMenuOpening(!isMenuOpen)}
+          ></div>
+        )}
         <div className="flex justify-between items-center py-6 px-4 md:px-12">
           <ul className="flex justify-between gap-10 items-center uppercase font-semibold tracking-wide">
             <li>
@@ -109,33 +115,63 @@ export default function Navbar() {
                 </li>
               </ul>
             </li>
+            <li
+              className={`flex md:hidden bg-themeWhite-2 fixed top-[180px] z-30 text-2xl py-8 h-screen w-screen ${
+                isMenuOpening
+                  ? 'animate-slide-in right-0'
+                  : 'animate-slide-out -right-[770px]'
+              } ${isMenuOpen ? 'visible' : 'invisible'}`}
+            >
+              <ul className="flex flex-col gap-12">
+                <li>
+                  <Link
+                    href="/products"
+                    className={styles.Navbar__mobile__link}
+                  >
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className={styles.Navbar__mobile__link}>
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className={styles.Navbar__mobile__link}>
+                    About
+                  </Link>
+                </li>
+              </ul>
+            </li>
           </ul>
-          <div className="text-3xl">
-            <button
-              aria-label="shopping cart"
-              onClick={() => alert('Products available for purchase soon!')}
-            >
-              <FaShoppingCart />
-            </button>
-          </div>
-          <div
-            className={`flex md:hidden ${
-              isNavVisible ? 'top-0' : 'top-[-100px]'
-            }`}
-          >
-            <button
-              aria-expanded={isMenuOpening}
-              onClick={() => setIsMenuOpening(!isMenuOpen)}
-              className={`${styles.MobileMenu__Button} ${
-                isMenuOpening ? `${styles.MobileMenu__Button__open}` : ''
+          <div className="flex items-center gap-8">
+            <div className="text-3xl">
+              <button
+                aria-label="shopping cart"
+                onClick={() => alert('Products available for purchase soon!')}
+              >
+                <FaShoppingCart />
+              </button>
+            </div>
+            <div
+              className={`flex md:hidden ${
+                isNavVisible ? 'top-0' : 'top-[-100px]'
               }`}
-              data-testid="mobile-menu-button"
             >
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+              <button
+                aria-expanded={isMenuOpening}
+                onClick={() => setIsMenuOpening(!isMenuOpen)}
+                className={`${styles.MobileMenu__Button} ${
+                  isMenuOpening ? `${styles.MobileMenu__Button__open}` : ''
+                }`}
+                data-testid="mobile-menu-button"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
