@@ -5,6 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import customClient from '../../customClient'
 import { useEffect, useState } from 'react'
 import styles from './Navbar.module.css'
+import { useInView } from 'react-intersection-observer'
 
 interface INavBarData {
   logoLinkUrl: string
@@ -14,6 +15,19 @@ interface INavBarData {
 
 export default function Navbar() {
   const [navBarData, setNavBarData] = useState<INavBarData[]>([])
+  const [currentScrollPos, setCurrentScrollPos] = useState(0)
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  const [isScrollNavVisible, setIsScrollNavVisible] = useState(false)
+  const [isMenuOpening, setIsMenuOpening] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const { ref, inView } = useInView()
+
+  const handleScroll = () => {
+    setCurrentScrollPos(window.scrollY)
+    setPrevScrollPos(currentScrollPos)
+    setIsScrollNavVisible(prevScrollPos > currentScrollPos && !inView)
+  }
 
   useEffect(() => {
     customClient
@@ -28,22 +42,10 @@ export default function Navbar() {
       .catch(console.error)
   }, [])
 
-  const [currentScrollPos, setCurrentScrollPos] = useState(0)
-  const [prevScrollPos, setPrevScrollPos] = useState(0)
-  const [isNavVisible, setIsNavVisible] = useState(true)
-  const [isMenuOpening, setIsMenuOpening] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const handleScroll = () => {
-    setCurrentScrollPos(window.pageYOffset)
-    setPrevScrollPos(currentScrollPos)
-    setIsNavVisible(prevScrollPos > currentScrollPos || currentScrollPos < 70)
-  }
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [prevScrollPos, isNavVisible, handleScroll])
+  }, [prevScrollPos, isScrollNavVisible, handleScroll])
 
   useEffect(() => {
     if (isMenuOpening) {
@@ -65,9 +67,9 @@ export default function Navbar() {
     }
   }, [isMenuOpening])
 
-  if (navBarData.length > 0) {
+  const NavBarContents = () => {
     return (
-      <nav className="bg-themeYellow-1 relative">
+      <div className="relative">
         {isMenuOpen && (
           <div
             className="w-full h-screen absolute -top-36"
@@ -116,11 +118,13 @@ export default function Navbar() {
               </ul>
             </li>
             <li
-              className={`flex md:hidden bg-themeWhite-2 fixed top-[180px] z-30 text-2xl py-8 h-screen w-screen ${
+              className={`flex md:hidden bg-themeWhite-2 fixed z-30 text-2xl py-8 h-screen w-screen ${
                 isMenuOpening
                   ? 'animate-slide-in right-0'
                   : 'animate-slide-out -right-[770px]'
-              } ${isMenuOpen ? 'visible' : 'invisible'}`}
+              } ${isMenuOpen ? 'visible' : 'invisible'} ${
+                currentScrollPos > 0 ? 'top-[92px]' : 'top-[170px]'
+              }`}
             >
               <ul className="flex flex-col gap-12">
                 <li>
@@ -155,7 +159,7 @@ export default function Navbar() {
             </div>
             <div
               className={`flex md:hidden ${
-                isNavVisible ? 'top-0' : 'top-[-100px]'
+                isScrollNavVisible ? 'top-0' : 'top-[-100px]'
               }`}
             >
               <button
@@ -174,7 +178,24 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </nav>
+      </div>
+    )
+  }
+
+  if (navBarData.length > 0) {
+    return (
+      <>
+        <nav ref={ref} className="w-full bg-themeYellow-1">
+          <NavBarContents />
+        </nav>
+        <nav
+          className={`duration-300 w-full fixed bg-themeWhite-2 ${
+            isScrollNavVisible ? `top-0` : '-top-[100px]'
+          }`}
+        >
+          <NavBarContents />
+        </nav>
+      </>
     )
   } else return null
 }

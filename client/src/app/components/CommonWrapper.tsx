@@ -10,9 +10,7 @@ export default function CommonWrapper({
   return (
     <RootLayout>
       <header>
-        {/* @ts-expect-error Server Component */}
         <Banner />
-        {/* @ts-expect-error Server Component */}
         <Navbar />
       </header>
       <main>{children}</main>
