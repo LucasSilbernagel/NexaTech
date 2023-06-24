@@ -57,10 +57,10 @@ export default function Navbar() {
       })
       setIsMenuOpen(true)
       /** Prevent scrolling when the menu is open. */
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflowY = 'hidden'
     } else {
       document.removeEventListener('keydown', (e) => e.key === 'Escape')
-      document.body.style.overflow = 'scroll'
+      document.body.style.overflowY = 'scroll'
       setTimeout(() => {
         setIsMenuOpen(false)
       }, 500)
