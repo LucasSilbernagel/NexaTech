@@ -12,7 +12,7 @@ import Link from 'next/link'
 export default async function Footer() {
   return (
     <footer className={styles.Footer}>
-      <div className="flex flex-col md:flex-row gap-12 lg:gap-36 mx-auto max-w-max">
+      <div className="flex flex-col md:flex-row justify-between gap-12 max-w-screen-2xl mx-auto 2xl:px-10">
         <div>
           <EmailForm />
         </div>
@@ -47,7 +47,7 @@ export default async function Footer() {
           </ul>
         </div>
       </div>
-      <div className="mt-12 flex flex-col md:flex-row gap-12 lg:gap-36 mx-auto max-w-max">
+      <div className="mt-12 flex flex-col md:flex-row gap-12 lg:gap-36 justify-between max-w-screen-2xl mx-auto 2xl:px-10">
         <ul className="flex gap-12">
           <li>
             <Link href="/products">Products</Link>

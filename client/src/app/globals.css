@@ -5,3 +5,7 @@
 body {
   @apply bg-themeYellow-1 text-themeGreen-1;
 }
+
+main {
+  @apply max-w-screen-2xl mx-auto 2xl:px-12;
+}

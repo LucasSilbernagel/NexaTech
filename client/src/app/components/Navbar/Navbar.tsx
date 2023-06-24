@@ -76,7 +76,7 @@ export default function Navbar() {
             onClick={() => setIsMenuOpening(!isMenuOpen)}
           ></div>
         )}
-        <div className="flex justify-between items-center py-6 px-4 md:px-12">
+        <div className="flex justify-between items-center py-6 px-4 md:px-12 max-w-screen-2xl mx-auto">
           <ul className="flex justify-between gap-10 items-center uppercase font-semibold tracking-wide">
             <li>
               <Link
