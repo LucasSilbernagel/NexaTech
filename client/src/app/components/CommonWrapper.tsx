@@ -1,5 +1,6 @@
 import RootLayout from '../layout'
 import Banner from './Banner/Banner'
+import Footer from './Footer/Footer'
 import Navbar from './Navbar/Navbar'
 
 export default function CommonWrapper({
@@ -14,9 +15,7 @@ export default function CommonWrapper({
         <Navbar />
       </header>
       <main>{children}</main>
-      <footer>
-        <p>This is the footer</p>
-      </footer>
+      <Footer />
     </RootLayout>
   )
 }

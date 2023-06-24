@@ -1,0 +1,25 @@
+.Footer {
+  @apply bg-themeYellow-2 py-12 px-4 md:px-12;
+}
+
+.Footer a {
+  @apply transition underline underline-offset-4 decoration-transparent;
+}
+
+.Footer a:hover,
+.Footer a:focus {
+  @apply decoration-themeGreen-1 decoration-2;
+}
+
+.SocialLinks {
+  @apply flex gap-4 lg:gap-10 text-2xl;
+}
+
+.SocialLinks a {
+  @apply text-themeWhite-1 bg-themeGreen-1 p-2.5 rounded-[50%] block transition;
+}
+
+.SocialLinks a:hover,
+.SocialLinks a:focus {
+  @apply bg-themeGreen-2;
+}
