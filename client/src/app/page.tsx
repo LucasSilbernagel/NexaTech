@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { clientFetch } from './clientFetch'
 import { Metadata } from 'next'
 import CommonWrapper from './components/CommonWrapper'
+import { FaArrowRight } from 'react-icons/fa'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -46,8 +47,8 @@ export default async function page() {
   return (
     <CommonWrapper>
       <div>
-        <section className="flex flex-row-reverse">
-          <div>
+        <section className="flex flex-col items-center md:flex-row-reverse gap-4 lg:gap-20 justify-center">
+          <div className="w-full max-w-[300px] lg:max-w-[500px]">
             <Image
               src={homePageData[0].heroImage}
               alt="NexaHub"
@@ -57,12 +58,17 @@ export default async function page() {
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
-          <div>
-            <h1 className="text-4xl text-center">
+          <div className="mb-24">
+            <h1 className="text-3xl lg:text-5xl text-left lg:text-center mt-0 lg:mt-36 mb-8 lg:mb-12 font-semibold">
               {homePageData[0].heroTitle}
             </h1>
-            <Link className="underline" href={homePageData[0].heroLinkUrl}>
-              {homePageData[0].heroLinkText}
+            <Link
+              href={homePageData[0].heroLinkUrl}
+              className="ArrowLink text-xl"
+            >
+              <FaArrowRight />{' '}
+              <span className="mx-2">{homePageData[0].heroLinkText}</span>{' '}
+              <FaArrowRight />
             </Link>
           </div>
         </section>

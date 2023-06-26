@@ -10,15 +10,24 @@ main {
   @apply max-w-screen-2xl mx-auto px-4 md:px-12;
 }
 
-.ErrorLink {
-  @apply flex items-center transition underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-themeGreen-1 focus:decoration-themeGreen-1;
+.ArrowLink {
+  @apply ml-2 font-bold flex items-center overflow-hidden whitespace-nowrap max-w-min;
 }
 
-.ErrorLink .ArrowLeft {
-  @apply -translate-x-4 transition;
+.ArrowLink svg {
+  @apply transition-all duration-500;
 }
 
-.ErrorLink:hover .ArrowLeft,
-.ErrorLink:focus .ArrowLeft {
-  @apply -translate-x-2;
+.ArrowLink:hover svg:nth-of-type(2),
+.ArrowLink:focus svg:nth-of-type(2) {
+  @apply opacity-0;
+}
+
+.ArrowLink * {
+  @apply -translate-x-5 transition-transform duration-500;
+}
+
+.ArrowLink:hover *,
+.ArrowLink:focus * {
+  @apply translate-x-0;
 }

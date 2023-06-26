@@ -2,7 +2,6 @@ import { groq } from 'next-sanity'
 import Link from 'next/link'
 import { clientFetch } from '../../clientFetch'
 import { FaArrowRight } from 'react-icons/fa'
-import styles from './Banner.module.css'
 import { headers } from 'next/headers'
 
 export default async function Banner() {
@@ -23,7 +22,7 @@ export default async function Banner() {
           {bannerData[0].bannerText}{' '}
           <Link
             href={bannerData[0].bannerLink.url}
-            className={styles.Banner__link}
+            className="ArrowLink text-themeRed-1 uppercase"
           >
             <FaArrowRight />{' '}
             <span className="mx-2">{bannerData[0].bannerLink.text}</span>{' '}
