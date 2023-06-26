@@ -3,6 +3,7 @@ import CommonWrapper from './components/CommonWrapper'
 import { Metadata } from 'next'
 import { clientFetch } from './clientFetch'
 import { groq } from 'next-sanity'
+import { FaArrowLeft } from 'react-icons/fa'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -36,11 +37,15 @@ export default function NotFound() {
   return (
     <CommonWrapper>
       <div>
-        <h1>Not Found</h1>
-        <p>Could not find requested resource</p>
-        <p>
-          <Link href="/">Return home</Link>
-        </p>
+        <h1 className="text-5xl text-center my-24">
+          Sorry, that page couldn&apos;t be found!
+        </h1>
+        <div className="w-full flex justify-center text-2xl mb-24">
+          <Link href="/" className="ErrorLink">
+            <FaArrowLeft className="ArrowLeft" />
+            Return home
+          </Link>
+        </div>
       </div>
     </CommonWrapper>
   )

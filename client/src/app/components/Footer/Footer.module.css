@@ -3,12 +3,12 @@
 }
 
 .Footer a {
-  @apply transition underline underline-offset-4 decoration-transparent;
+  @apply transition underline underline-offset-4 decoration-2 decoration-transparent;
 }
 
 .Footer a:hover,
 .Footer a:focus {
-  @apply decoration-themeGreen-1 decoration-2;
+  @apply decoration-themeGreen-1;
 }
 
 .SocialLinks {

@@ -9,3 +9,16 @@ body {
 main {
   @apply max-w-screen-2xl mx-auto px-4 md:px-12;
 }
+
+.ErrorLink {
+  @apply flex items-center transition underline underline-offset-4 decoration-2 decoration-transparent hover:decoration-themeGreen-1 focus:decoration-themeGreen-1;
+}
+
+.ErrorLink .ArrowLeft {
+  @apply -translate-x-4 transition;
+}
+
+.ErrorLink:hover .ArrowLeft,
+.ErrorLink:focus .ArrowLeft {
+  @apply -translate-x-2;
+}
