@@ -14,7 +14,7 @@ module.exports = {
           3: '#BDDDB8',
         },
         themeRed: {
-          1: '#EF426E',
+          1: '#F75077',
         },
         themeYellow: {
           1: '#FEF9ED',
