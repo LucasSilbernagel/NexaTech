@@ -50,7 +50,7 @@ export default async function Footer() {
       <div className="mt-12 flex flex-col md:flex-row gap-12 lg:gap-36 justify-between max-w-screen-2xl mx-auto 2xl:px-10">
         <ul className="flex gap-12">
           <li>
-            <Link href="/products">Products</Link>
+            <Link href="/shop">Shop</Link>
           </li>
           <li>
             <Link href="/blog">Blog</Link>

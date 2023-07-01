@@ -98,11 +98,8 @@ export default function Navbar() {
             <li className="hidden md:flex">
               <ul className="flex justify-between gap-10">
                 <li>
-                  <Link
-                    href="/products"
-                    className={styles.Navbar__desktop__link}
-                  >
-                    Products
+                  <Link href="/shop" className={styles.Navbar__desktop__link}>
+                    Shop
                   </Link>
                 </li>
                 <li>
@@ -128,11 +125,8 @@ export default function Navbar() {
             >
               <ul className="flex flex-col gap-12">
                 <li>
-                  <Link
-                    href="/products"
-                    className={styles.Navbar__mobile__link}
-                  >
-                    Products
+                  <Link href="/shop" className={styles.Navbar__mobile__link}>
+                    Shop
                   </Link>
                 </li>
                 <li>
@@ -152,7 +146,7 @@ export default function Navbar() {
             <div className="text-3xl">
               <button
                 aria-label="shopping cart"
-                onClick={() => alert('Products available for purchase soon!')}
+                onClick={() => alert('Shop available for purchase soon!')}
               >
                 <FaShoppingCart />
               </button>
