@@ -31,3 +31,7 @@ main {
 .ArrowLink:focus * {
   @apply translate-x-0;
 }
+
+.Carousel .carousel .carousel-status {
+  @apply text-xs top-[unset] bottom-10 right-10;
+}

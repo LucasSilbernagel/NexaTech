@@ -1,10 +1,8 @@
-import Image from 'next/image'
 import { groq } from 'next-sanity'
-import Link from 'next/link'
 import { clientFetch } from '../clientFetch'
 import { Metadata } from 'next'
 import CommonWrapper from '../components/CommonWrapper'
-import { FaArrowRight } from 'react-icons/fa'
+import ShopCarousel from '../components/ShopCarousel/ShopCarousel'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -36,21 +34,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function page() {
-  // const homePageData = await clientFetch(
-  //   groq`*[_type == 'shop']{
-  //     "heroTitle": heroTitle,
-  //     "heroLinkUrl": heroLink.url,
-  //     "heroLinkText": heroLink.text,
-  //     "heroImage": heroImage.asset->url
-  //   }`
-  // )
+  const pageData = await clientFetch(
+    groq`*[_type == 'shop']{
+      "slides": slides[]{
+        'altText': altText,
+        'image': image.asset->url
+      },
+    }`
+  )
+
   return (
     <CommonWrapper>
       <div>
-        <section className="flex flex-col items-center md:flex-row-reverse gap-4 lg:gap-20 justify-center">
+        <section>
           <div className="mb-24">
             <div className="flex justify-between">
-              <div>Carousel</div>
+              <ShopCarousel slides={pageData[0].slides} />
               <div>Description</div>
             </div>
           </div>
