@@ -1,15 +1,15 @@
-.Navbar__desktop__link:hover,
-.Navbar__mobile__link:hover,
-.Navbar__desktop__link:focus,
-.Navbar__mobile__link:focus {
+.Navbar__desktop-link:hover,
+.Navbar__mobile-link:hover,
+.Navbar__desktop-link:focus,
+.Navbar__mobile-link:focus {
   @apply underline decoration-themeGreen-2 decoration-4 underline-offset-8;
 }
 
-.Navbar__mobile__link {
+.Navbar__mobile-link {
   @apply px-12 relative;
 }
 
-.Navbar__mobile__link:after {
+.Navbar__mobile-link:after {
   @apply absolute content-[''] h-[1px] w-[90vw] bg-gray-300 -bottom-2 left-4;
 }
 
@@ -26,23 +26,23 @@
   @apply bg-transparent;
 }
 
-.MobileMenu__Button__open span:nth-of-type(1) {
+.MobileMenu__Button--open span:nth-of-type(1) {
   @apply w-[24px];
   transform: rotate(45deg);
   transform-origin: 0px 10px;
 }
 
-.MobileMenu__Button__open span:nth-of-type(3) {
+.MobileMenu__Button--open span:nth-of-type(3) {
   @apply bg-transparent;
   transform: rotate(45deg);
 }
 
-.MobileMenu__Button__open span:nth-of-type(2) {
+.MobileMenu__Button--open span:nth-of-type(2) {
   @apply bg-transparent;
   transform: rotate(-45deg);
 }
 
-.MobileMenu__Button__open span:nth-of-type(4) {
+.MobileMenu__Button--open span:nth-of-type(4) {
   @apply w-[24px] bg-themeGreen-1;
   transform: rotate(-45deg);
   transform-origin: -7px -9px;

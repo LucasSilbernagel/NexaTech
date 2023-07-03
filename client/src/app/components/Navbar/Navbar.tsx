@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FaShoppingCart } from 'react-icons/fa'
 import customClient from '../../customClient'
 import { useEffect, useState } from 'react'
-import styles from './Navbar.module.css'
+import './Navbar.css'
 import { useInView } from 'react-intersection-observer'
 
 interface INavBarData {
@@ -98,17 +98,17 @@ export default function Navbar() {
             <li className="hidden md:flex">
               <ul className="flex justify-between gap-10">
                 <li>
-                  <Link href="/shop" className={styles.Navbar__desktop__link}>
+                  <Link href="/shop" className="Navbar__desktop-link">
                     Shop
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className={styles.Navbar__desktop__link}>
+                  <Link href="/blog" className="Navbar__desktop-link">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className={styles.Navbar__desktop__link}>
+                  <Link href="/about" className="Navbar__desktop-link">
                     About
                   </Link>
                 </li>
@@ -125,17 +125,17 @@ export default function Navbar() {
             >
               <ul className="flex flex-col gap-12">
                 <li>
-                  <Link href="/shop" className={styles.Navbar__mobile__link}>
+                  <Link href="/shop" className="Navbar__mobile-link">
                     Shop
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className={styles.Navbar__mobile__link}>
+                  <Link href="/blog" className="Navbar__mobile-link">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className={styles.Navbar__mobile__link}>
+                  <Link href="/about" className="Navbar__mobile-link">
                     About
                   </Link>
                 </li>
@@ -159,8 +159,8 @@ export default function Navbar() {
               <button
                 aria-expanded={isMenuOpening}
                 onClick={() => setIsMenuOpening(!isMenuOpen)}
-                className={`${styles.MobileMenu__Button} ${
-                  isMenuOpening ? `${styles.MobileMenu__Button__open}` : ''
+                className={`MobileMenu__Button ${
+                  isMenuOpening ? `MobileMenu__Button--open` : ''
                 }`}
                 data-testid="mobile-menu-button"
               >

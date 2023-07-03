@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import styles from './EmailForm.module.css'
+import './EmailForm.css'
 import { FaArrowRight } from 'react-icons/fa'
 
 export default function EmailForm() {
@@ -23,7 +23,7 @@ export default function EmailForm() {
           id="email-form"
           type="email"
           placeholder="Enter your email address"
-          className={styles.EmailForm__Input}
+          className="EmailForm__Input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

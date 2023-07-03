@@ -1,0 +1,26 @@
+.ShopDescription {
+  @apply bg-themeYellow-2 xl:max-w-[600px] p-6 sm:p-12;
+}
+
+.ShopDescription .CartButton {
+  @apply w-full h-full flex items-center justify-center gap-2;
+}
+
+.ShopDescription .CartButton span,
+.ShopDescription .CartButton span {
+  @apply translate-x-3 transition-all duration-300;
+}
+
+.ShopDescription .CartButton:hover span,
+.ShopDescription .CartButton:focus span {
+  @apply translate-x-0;
+}
+
+.ShopDescription .CartButton svg {
+  @apply translate-x-8 opacity-0 transition-all duration-300;
+}
+
+.ShopDescription .CartButton:hover svg,
+.ShopDescription .CartButton:focus svg {
+  @apply translate-x-0 opacity-100;
+}

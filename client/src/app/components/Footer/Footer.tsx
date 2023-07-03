@@ -6,19 +6,19 @@ import {
   FaYoutube,
 } from 'react-icons/fa'
 import EmailForm from '../EmailForm/EmailForm'
-import styles from './Footer.module.css'
+import './Footer.css'
 import Link from 'next/link'
 
 export default async function Footer() {
   return (
-    <footer className={styles.Footer}>
+    <footer className="Footer">
       <div className="flex flex-col md:flex-row justify-between gap-12 max-w-screen-2xl mx-auto 2xl:px-10">
         <div>
           <EmailForm />
         </div>
         <div>
           <h3 className="font-semibold text-2xl mb-10">Follow us</h3>
-          <ul className={styles.SocialLinks}>
+          <ul className="SocialLinks">
             <li>
               <a href="#" aria-label="Facebook">
                 <FaFacebookF />
