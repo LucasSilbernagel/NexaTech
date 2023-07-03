@@ -146,7 +146,9 @@ export default function Navbar() {
             <div className="text-3xl">
               <button
                 aria-label="shopping cart"
-                onClick={() => alert('Shop available for purchase soon!')}
+                onClick={() =>
+                  alert('Cart functionality is not currently available')
+                }
               >
                 <FaShoppingCart />
               </button>

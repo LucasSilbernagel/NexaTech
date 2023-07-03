@@ -1,5 +1,12 @@
-import { FaArrowRight } from 'react-icons/fa'
+'use client'
+import {
+  FaArrowRight,
+  FaDollarSign,
+  FaShieldAlt,
+  FaTruck,
+} from 'react-icons/fa'
 import './ShopDescription.css'
+import { Carousel } from 'react-responsive-carousel'
 
 interface IShopDescriptionProps {
   productName: string
@@ -10,6 +17,31 @@ interface IShopDescriptionProps {
 
 const ShopDescription = (props: IShopDescriptionProps) => {
   const { productName, price, salePrice, description } = props
+
+  const carouselOptions = {
+    infiniteLoop: true,
+    showIndicators: false,
+    showThumbs: false,
+    autoPlay: true,
+    showArrows: false,
+    showStatus: false,
+    stopOnHover: true,
+  }
+
+  const purchaseCarouselItems = [
+    {
+      text: 'Free shipping',
+      icon: <FaTruck className="PurchaseCarousel__icon" />,
+    },
+    {
+      text: '45 day money back guarantee',
+      icon: <FaDollarSign className="PurchaseCarousel__icon" />,
+    },
+    {
+      text: '1 year limited warranty',
+      icon: <FaShieldAlt className="PurchaseCarousel__icon" />,
+    },
+  ]
 
   return (
     <div className="ShopDescription">
@@ -39,7 +71,14 @@ const ShopDescription = (props: IShopDescriptionProps) => {
             <p>${salePrice ? salePrice : price}</p>
           </div>
           <div className="bg-themeRed-1 text-white flex items-center w-full">
-            <button className="CartButton">
+            <button
+              className="CartButton"
+              onClick={() =>
+                alert(
+                  `Cart functionality is not set up, but if it was, this button would add the item to your cart!`
+                )
+              }
+            >
               <span>Add to Cart</span>
               <FaArrowRight />
             </button>
@@ -50,6 +89,20 @@ const ShopDescription = (props: IShopDescriptionProps) => {
             <p>You save ${price - salePrice}</p>
           </div>
         )}
+        <div>
+          <Carousel {...carouselOptions}>
+            {purchaseCarouselItems.map((item, index) => {
+              return (
+                <div key={index} className="PurchaseCarousel">
+                  <div>{item.icon}</div>
+                  <div>
+                    <p>{item.text}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </Carousel>
+        </div>
       </div>
     </div>
   )

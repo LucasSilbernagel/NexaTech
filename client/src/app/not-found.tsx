@@ -37,10 +37,10 @@ export default function NotFound() {
   return (
     <CommonWrapper>
       <div>
-        <h1 className="text-5xl text-center my-24">
+        <h1 className="text-5xl text-center py-24">
           Sorry, that page couldn&apos;t be found!
         </h1>
-        <div className="w-full flex justify-center text-2xl mb-24">
+        <div className="w-full flex justify-center text-2xl pb-24">
           <Link href="/" className="ArrowLink text-xl">
             <FaArrowRight /> <span className="mx-2">Return home</span>{' '}
             <FaArrowRight />

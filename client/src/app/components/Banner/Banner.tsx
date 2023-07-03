@@ -17,9 +17,13 @@ export default async function Banner() {
 
   if (bannerData[0].bannerText && !fullUrl.includes('blog')) {
     return (
-      <div className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3">
-        <p className="flex justify-center text-left">
-          {bannerData[0].bannerText}{' '}
+      <div className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3 flex justify-center">
+        <div>
+          <p className="flex justify-center text-left">
+            {bannerData[0].bannerText}{' '}
+          </p>
+        </div>
+        <div>
           <Link
             href={bannerData[0].bannerLink.url}
             className="ArrowLink text-themeRed-1 uppercase"
@@ -28,7 +32,7 @@ export default async function Banner() {
             <span className="mx-2">{bannerData[0].bannerLink.text}</span>{' '}
             <FaArrowRight />
           </Link>
-        </p>
+        </div>
       </div>
     )
   } else return null

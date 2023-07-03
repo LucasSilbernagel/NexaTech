@@ -24,3 +24,11 @@
 .ShopDescription .CartButton:focus svg {
   @apply translate-x-0 opacity-100;
 }
+
+.ShopDescription .PurchaseCarousel {
+  @apply flex items-center gap-4 mt-8 text-lg;
+}
+
+.ShopDescription .PurchaseCarousel__icon {
+  @apply text-themeGreen-2;
+}
