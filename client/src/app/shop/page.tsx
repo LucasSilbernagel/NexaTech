@@ -51,7 +51,7 @@ export default async function page() {
     <CommonWrapper>
       <div>
         <section>
-          <div className="mb-24">
+          <div className="pb-24">
             <div className="flex flex-col xl:flex-row mx-auto max-w-[700px] xl:max-w-none">
               <ShopCarousel slides={pageData[0].slides} />
               <div className="bg-themeYellow-2 xl:max-w-[600px] p-6 sm:p-12">
