@@ -7,7 +7,9 @@ body {
 }
 
 main {
-  @apply max-w-screen-2xl mx-auto px-4 md:px-12;
+  @apply max-w-screen-2xl mx-auto px-4 md:px-12 bg-no-repeat;
+  background-position-y: bottom ;
+  background-image: url('/wave.svg');
 }
 
 .ArrowLink {
