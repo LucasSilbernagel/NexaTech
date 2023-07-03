@@ -8,6 +8,10 @@ export default {
     {type: 'string', name: 'seoTitle'},
     {type: 'text', name: 'seoDescription'},
     {type: 'image', name: 'seoImage'},
+    {type: 'string', name: 'productName'},
+    {type: 'number', name: 'price'},
+    {type: 'number', name: 'salePrice'},
+    {type: 'text', name: 'description'},
     defineField({
       name: "slides",
       type: "array",

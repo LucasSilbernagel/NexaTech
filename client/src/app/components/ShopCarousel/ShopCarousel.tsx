@@ -47,10 +47,11 @@ export default function ShopCarousel({
     renderArrowNext: customNextArrow,
     statusFormatter: (current: number, total: number) =>
       `${current} / ${total}`,
+    showThumbs: false,
   }
 
   return (
-    <div className="w-7/12">
+    <div className="w-full xl:w-7/12">
       <Carousel {...carouselOptions} className="Carousel">
         {slides.map((slide) => {
           return (

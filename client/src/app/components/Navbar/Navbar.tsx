@@ -183,7 +183,7 @@ export default function Navbar() {
           <NavBarContents />
         </nav>
         <nav
-          className={`duration-300 w-full fixed bg-themeWhite-2 ${
+          className={`duration-300 w-full fixed bg-themeWhite-2 z-10 ${
             isScrollNavVisible ? `top-0` : '-top-[100px]'
           }`}
         >
