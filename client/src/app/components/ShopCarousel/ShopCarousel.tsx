@@ -51,7 +51,7 @@ export default function ShopCarousel({
   }
 
   return (
-    <div className="w-full xl:w-7/12">
+    <div className="w-full xl:w-7/12 bg-themeYellow-2">
       <Carousel {...carouselOptions} className="Carousel">
         {slides.map((slide) => {
           return (
