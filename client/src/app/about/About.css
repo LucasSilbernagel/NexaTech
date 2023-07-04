@@ -1,0 +1,24 @@
+.AboutUs {
+  @apply max-w-screen-md mx-auto bg-themeGreen-3 p-4 rounded-lg;
+}
+
+.AboutUs h1 {
+  @apply text-4xl text-center mb-8 font-bold;
+}
+
+.AboutUs p {
+  @apply mb-4 text-lg;
+}
+
+.AboutUs a {
+  @apply transition-all underline underline-offset-4 decoration-2 decoration-themeGreen-1 font-bold;
+}
+
+.AboutUs a:hover,
+.AboutUs a:focus {
+  @apply underline-offset-2;
+}
+
+.AboutUs img {
+  @apply rounded-sm max-w-full sm:max-w-[500px] mx-auto;
+}
