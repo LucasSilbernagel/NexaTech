@@ -3,5 +3,17 @@ import homepage from "./homepage";
 import banner from './banner'
 import shop from './shop'
 import about from "./about";
+import author from "./author";
+import post from "./post";
+import category from "./category";
 
-export const schemaTypes = [navbar, homepage, banner, shop, about]
+export const schemaTypes = [
+  navbar, 
+  homepage, 
+  banner, 
+  shop, 
+  about, 
+  author,
+  category,
+  post,
+]
