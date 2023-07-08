@@ -1,5 +1,5 @@
 .AboutUs {
-  @apply max-w-screen-md mx-auto bg-themeGreen-3 p-4 rounded-lg;
+  @apply max-w-screen-lg mx-auto my-8 bg-themeGreen-3 p-4 rounded-lg;
 }
 
 .AboutUs h1 {

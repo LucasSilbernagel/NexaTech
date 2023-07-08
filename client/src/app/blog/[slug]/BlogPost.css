@@ -1,0 +1,20 @@
+.BlogPost {
+  @apply max-w-screen-lg mx-auto my-8 bg-themeGreen-1 text-white p-4 rounded-lg;
+}
+
+.BlogPost__header {
+  @apply text-center border-4 border-x-transparent border-t-transparent border-b-themeGreen-2 mb-6;
+}
+
+.BlogPost__body {
+  @apply text-base sm:text-lg max-w-3xl mx-auto pb-8;
+}
+
+.BlogPost__body p {
+  @apply my-4 indent-6;
+}
+
+
+.BlogPost__body img {
+  @apply max-w-full sm:max-w-[500px] mx-auto rounded-lg;
+}

@@ -5,7 +5,7 @@ import shop from './shop'
 import about from "./about";
 import author from "./author";
 import post from "./post";
-import category from "./category";
+import blog from "./blog";
 
 export const schemaTypes = [
   navbar, 
@@ -14,6 +14,6 @@ export const schemaTypes = [
   shop, 
   about, 
   author,
-  category,
   post,
+  blog
 ]

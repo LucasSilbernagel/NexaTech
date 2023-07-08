@@ -10,14 +10,6 @@ export default {
     {type: 'date', name: 'date'},
     {type: 'array', of: [
       {
-        name: 'category',
-        type: 'reference',
-        title: 'Category',
-        to: [{type: 'category' }]
-      }
-    ], name: 'categories'},
-    {type: 'array', of: [
-      {
         name: 'author',
         type: 'reference',
         title: 'Author',

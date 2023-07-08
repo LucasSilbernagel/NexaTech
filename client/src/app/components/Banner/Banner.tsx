@@ -15,7 +15,7 @@ export default async function Banner() {
   const headersList = headers()
   const fullUrl = headersList.get('referer') || ''
 
-  if (bannerData[0].bannerText && !fullUrl.includes('blog')) {
+  if (bannerData[0].bannerText && !fullUrl.includes('shop')) {
     return (
       <div className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3 flex justify-center">
         <div>
