@@ -50,6 +50,7 @@ export default async function page() {
         <section className="flex flex-col items-center md:flex-row-reverse gap-4 lg:gap-20 justify-center">
           <div className="w-full max-w-[300px] lg:max-w-[500px]">
             <Image
+              priority
               src={homePageData[0].heroImage}
               alt="NexaHub"
               width={0}
