@@ -1,5 +1,5 @@
 .BlogPost {
-  @apply max-w-screen-lg mx-auto my-8 bg-themeGreen-1 text-white p-4 rounded-lg;
+  @apply max-w-screen-lg mx-auto bg-themeGreen-1 text-white p-4 rounded-lg;
 }
 
 .BlogPost__header {
