@@ -1,0 +1,17 @@
+.Blog__link {
+  @apply block bg-white py-1 shadow-lg transition-shadow duration-300;
+}
+
+.Blog__link:hover,
+.Blog__link:focus-visible {
+  @apply shadow-sm;
+}
+
+.Blog__link h2 {
+  @apply transition-colors duration-300;
+}
+
+.Blog__link:hover h2,
+.Blog__link:focus-visible h2 {
+  @apply text-themeGreen-2;
+}
