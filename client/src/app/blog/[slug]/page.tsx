@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { groq } from 'next-sanity'
 import { format } from 'date-fns'
 import { PortableText } from '@portabletext/react'
-import ImageComponent from '@/app/components/ImageComponent/ImageComponent'
+import RichImage from '@/app/components/RichImage/RichImage'
 import Link from 'next/link'
 import './BlogPost.css'
 
@@ -83,7 +83,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               value={post.postContent}
               components={{
                 types: {
-                  image: ImageComponent,
+                  image: RichImage,
                 },
                 marks: {
                   link: ({ value, children }) => {

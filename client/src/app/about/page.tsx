@@ -5,7 +5,7 @@ import CommonWrapper from '../components/CommonWrapper'
 import { PortableText } from '@portabletext/react'
 import './About.css'
 import Link from 'next/link'
-import ImageComponent from '../components/ImageComponent/ImageComponent'
+import RichImage from '../components/RichImage/RichImage'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -52,7 +52,7 @@ export default async function page() {
               value={pageData[0].aboutUs}
               components={{
                 types: {
-                  image: ImageComponent,
+                  image: RichImage,
                 },
                 marks: {
                   link: ({ value, children }) => {

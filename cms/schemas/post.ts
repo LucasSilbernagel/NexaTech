@@ -18,7 +18,19 @@ export default {
     ], name: 'authors'},
     {type: 'array', of: [
       {type: 'block'}, 
-      {type: 'image'},
+      {
+        title: 'Image',
+        name: 'image',
+        type: 'image',
+        fields: [
+          {
+            name: 'altText',
+            type: 'string',
+            title: 'AltText',
+            validation: (Rule: { required: () => any; }) => Rule.required()
+          },
+        ]
+      },
     ], name: 'postContent'},
   ]
 }

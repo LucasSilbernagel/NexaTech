@@ -1,14 +1,14 @@
 import urlBuilder from '@sanity/image-url'
-import { getImageDimensions, SanityImageSource } from '@sanity/asset-utils'
+import { getImageDimensions } from '@sanity/asset-utils'
 import customClient from '../../customClient'
 
-const ImageComponent = ({ value }: { value: SanityImageSource }) => {
+const RichImage = ({ value }: { value: { url: string; altText: string } }) => {
   const builder = urlBuilder(customClient)
   const { width, height } = getImageDimensions(value)
   return (
     <img
       src={builder.image(value).width(800).fit('max').auto('format').url()}
-      alt=""
+      alt={value.altText}
       loading="lazy"
       style={{
         // Avoid jumping around with aspect-ratio CSS property
@@ -18,4 +18,4 @@ const ImageComponent = ({ value }: { value: SanityImageSource }) => {
   )
 }
 
-export default ImageComponent
+export default RichImage
