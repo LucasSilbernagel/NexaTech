@@ -1,9 +1,9 @@
-import { defineArrayMember, defineField } from "sanity";
+import {defineArrayMember, defineField} from 'sanity'
 
 export default {
   name: 'shop',
   type: 'document',
-	title: 'Shop',
+  title: 'Shop',
   fields: [
     {type: 'string', name: 'seoTitle'},
     {type: 'text', name: 'seoDescription'},
@@ -13,9 +13,9 @@ export default {
     {type: 'number', name: 'salePrice'},
     {type: 'text', name: 'description'},
     defineField({
-      name: "slides",
-      type: "array",
-      title: "Image carousel slides",
+      name: 'slides',
+      type: 'array',
+      title: 'Image carousel slides',
       of: [
         defineArrayMember({
           type: 'object',
@@ -23,9 +23,9 @@ export default {
           fields: [
             {type: 'image', name: 'image'},
             {type: 'string', name: 'altText'},
-          ]
-        })
-      ]
+          ],
+        }),
+      ],
     }),
-  ]
+  ],
 }

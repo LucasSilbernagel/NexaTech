@@ -1,9 +1,9 @@
-import { defineField } from "sanity";
+import {defineField} from 'sanity'
 
 export default {
   name: 'homepage',
   type: 'document',
-	title: 'Homepage',
+  title: 'Homepage',
   fields: [
     {type: 'string', name: 'seoTitle'},
     {type: 'text', name: 'seoDescription'},
@@ -14,9 +14,9 @@ export default {
       name: 'heroLink',
       fields: [
         {type: 'string', name: 'text'},
-        {type: 'string', name: 'url'}
-      ]
+        {type: 'string', name: 'url'},
+      ],
     }),
     {type: 'image', name: 'heroImage'},
-  ]
+  ],
 }

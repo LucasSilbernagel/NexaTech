@@ -1,9 +1,9 @@
-import { defineField } from "sanity";
+import {defineField} from 'sanity'
 
 export default {
   name: 'banner',
   type: 'document',
-	title: 'Banner',
+  title: 'Banner',
   fields: [
     {type: 'text', name: 'bannerText'},
     defineField({
@@ -11,8 +11,8 @@ export default {
       name: 'bannerLink',
       fields: [
         {type: 'string', name: 'text'},
-        {type: 'string', name: 'url'}
-      ]
-    })
-  ]
+        {type: 'string', name: 'url'},
+      ],
+    }),
+  ],
 }
