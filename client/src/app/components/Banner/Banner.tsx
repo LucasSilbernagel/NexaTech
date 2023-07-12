@@ -6,7 +6,7 @@ import { headers } from 'next/headers'
 
 export default async function Banner() {
   const bannerData = await clientFetch(
-    groq`*[_type == 'banner']{
+    groq`*[_type == 'banner'][0]{
       "bannerText": bannerText,
       "bannerLink": bannerLink,
     }`
@@ -15,21 +15,21 @@ export default async function Banner() {
   const headersList = headers()
   const fullUrl = headersList.get('referer') || ''
 
-  if (bannerData[0].bannerText && !fullUrl.includes('shop')) {
+  if (bannerData.bannerText && !fullUrl.includes('shop')) {
     return (
       <div className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3 flex justify-center">
         <div>
           <p className="flex justify-center text-left">
-            {bannerData[0].bannerText}{' '}
+            {bannerData.bannerText}{' '}
           </p>
         </div>
         <div>
           <Link
-            href={bannerData[0].bannerLink.url}
+            href={bannerData.bannerLink.url}
             className="ArrowLink text-themeRed-1 uppercase"
           >
             <FaArrowRight />{' '}
-            <span className="mx-2">{bannerData[0].bannerLink.text}</span>{' '}
+            <span className="mx-2">{bannerData.bannerLink.text}</span>{' '}
             <FaArrowRight />
           </Link>
         </div>

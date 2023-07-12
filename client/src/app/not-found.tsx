@@ -7,22 +7,22 @@ import { FaArrowRight } from 'react-icons/fa'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
-    groq`*[_type == 'homepage']{
+    groq`*[_type == 'homepage'][0]{
       "seoDescription": seoDescription,
       "seoImage": seoImage.asset->url
     }`
   )
   return {
     title: `NexaTech | 404`,
-    description: seoData[0].seoDescription,
+    description: seoData.seoDescription,
     openGraph: {
       title: `NexaTech | 404`,
-      description: seoData[0].seoDescription,
+      description: seoData.seoDescription,
       url: 'https://nexatech.com/',
       siteName: 'NexaTech',
       images: [
         {
-          url: seoData[0].seoImage,
+          url: seoData.seoImage,
           width: 800,
           height: 600,
         },

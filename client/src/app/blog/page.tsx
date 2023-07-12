@@ -16,23 +16,23 @@ export interface IBlogPost {
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
-    groq`*[_type == 'blog']{
+    groq`*[_type == 'blog'][0]{
       "seoTitle": seoTitle,
       "seoDescription": seoDescription,
       "seoImage": seoImage.asset->url,
     }`
   )
   return {
-    title: `NexaTech | ${seoData[0].seoTitle}`,
-    description: seoData[0].seoDescription,
+    title: `NexaTech | ${seoData.seoTitle}`,
+    description: seoData.seoDescription,
     openGraph: {
-      title: `NexaTech | ${seoData[0].seoTitle}`,
-      description: seoData[0].seoDescription,
+      title: `NexaTech | ${seoData.seoTitle}`,
+      description: seoData.seoDescription,
       url: 'https://nexatech.com/',
       siteName: 'NexaTech',
       images: [
         {
-          url: seoData[0].seoImage,
+          url: seoData.seoImage,
           width: 800,
           height: 600,
         },

@@ -7,14 +7,8 @@ import { useEffect, useState } from 'react'
 import './Navbar.css'
 import { useInView } from 'react-intersection-observer'
 
-interface INavBarData {
-  logoLinkUrl: string
-  logoLinkAriaLabel: string
-  logoLinkImage: string
-}
-
 export default function Navbar() {
-  const [navBarData, setNavBarData] = useState<INavBarData[]>([])
+  const [navBarData, setNavBarData] = useState<{ logo: string }>({ logo: '' })
   const [currentScrollPos, setCurrentScrollPos] = useState(0)
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [isScrollNavVisible, setIsScrollNavVisible] = useState(false)
@@ -32,10 +26,8 @@ export default function Navbar() {
   useEffect(() => {
     customClient
       .fetch(
-        `*[_type == 'navbar']{
-      "logoLinkUrl": logoLink.url,
-      "logoLinkAriaLabel": logoLink.ariaLabel,
-      "logoLinkImage": logoLink.image.asset->url
+        `*[_type == 'navbar'][0]{
+      "logo": logo.asset->url
     }`
       )
       .then((data) => setNavBarData(data))
@@ -79,13 +71,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center py-6 px-4 md:px-12 max-w-screen-2xl mx-auto">
           <ul className="flex justify-between gap-10 items-center uppercase font-semibold tracking-wide">
             <li>
-              <Link
-                href={navBarData[0].logoLinkUrl}
-                aria-label={navBarData[0].logoLinkAriaLabel}
-              >
+              <Link href="/" aria-label="NexaTech">
                 <div className="w-[150px]">
                   <Image
-                    src={navBarData[0].logoLinkImage}
+                    src={navBarData.logo}
                     alt=""
                     width={0}
                     height={0}
@@ -178,7 +167,7 @@ export default function Navbar() {
     )
   }
 
-  if (navBarData.length > 0) {
+  if (navBarData.logo.length > 0) {
     return (
       <>
         <nav ref={ref} className="w-full bg-themeYellow-1">

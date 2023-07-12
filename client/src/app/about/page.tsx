@@ -9,23 +9,23 @@ import RichImage from '../components/RichImage/RichImage'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
-    groq`*[_type == 'about']{
+    groq`*[_type == 'about'][0]{
       "seoTitle": seoTitle,
       "seoDescription": seoDescription,
       "seoImage": seoImage.asset->url,
     }`
   )
   return {
-    title: `NexaTech | ${seoData[0].seoTitle}`,
-    description: seoData[0].seoDescription,
+    title: `NexaTech | ${seoData.seoTitle}`,
+    description: seoData.seoDescription,
     openGraph: {
-      title: `NexaTech | ${seoData[0].seoTitle}`,
-      description: seoData[0].seoDescription,
+      title: `NexaTech | ${seoData.seoTitle}`,
+      description: seoData.seoDescription,
       url: 'https://nexatech.com/',
       siteName: 'NexaTech',
       images: [
         {
-          url: seoData[0].seoImage,
+          url: seoData.seoImage,
           width: 800,
           height: 600,
         },
@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function page() {
   const pageData = await clientFetch(
-    groq`*[_type == 'about']{
+    groq`*[_type == 'about'][0]{
       "aboutUs": aboutUs,
     }`
   )
@@ -49,7 +49,7 @@ export default async function page() {
         <section className="py-8">
           <div className="AboutUs">
             <PortableText
-              value={pageData[0].aboutUs}
+              value={pageData.aboutUs}
               components={{
                 types: {
                   image: RichImage,

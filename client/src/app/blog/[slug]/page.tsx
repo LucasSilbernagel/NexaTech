@@ -16,23 +16,23 @@ export async function generateMetadata({
   const slug = params.slug
 
   const seoData = await clientFetch(
-    groq`*[_type == 'post' && slug == "${slug}"]{
+    groq`*[_type == 'post' && slug == "${slug}"][0]{
       "title": title,
       "description": description,
       "image": image.asset->url,
     }`
   )
   return {
-    title: `NexaTech | ${seoData[0].title}`,
-    description: seoData[0].description,
+    title: `NexaTech | ${seoData.title}`,
+    description: seoData.description,
     openGraph: {
-      title: `NexaTech | ${seoData[0].title}`,
-      description: seoData[0].description,
+      title: `NexaTech | ${seoData.title}`,
+      description: seoData.description,
       url: 'https://nexatech.com/',
       siteName: 'NexaTech',
       images: [
         {
-          url: seoData[0].image,
+          url: seoData.image,
           width: 800,
           height: 600,
         },
@@ -45,7 +45,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const postData = await clientFetch(
-    groq`*[_type == 'post' && slug == "${params.slug}"]{
+    groq`*[_type == 'post' && slug == "${params.slug}"][0]{
       "title": title,
       "date": date,
       "authors": authors[] ->{
@@ -55,32 +55,32 @@ export default async function Page({ params }: { params: { slug: string } }) {
     }`
   )
 
-  const post = postData[0]
-
   return (
     <CommonWrapper>
       <div className="py-8">
         <div className="BlogPost">
           <div className="BlogPost__header">
             <p className="text-lg sm:text-xl underline underline-offset-4">
-              {format(new Date(post.date), 'PPP')}
+              {format(new Date(postData.date), 'PPP')}
             </p>
             <h1 className="text-4xl sm:text-5xl font-bold my-4">
-              {post.title}
+              {postData.title}
             </h1>
             <p className="text-lg sm:text-xl bg-themeGreen-2 text-black max-w-max mx-auto p-1 rounded-sm mb-4">
-              {post.authors.map((author: { name: string }, index: number) => (
-                <span key={index} className="mr-3">
-                  {`${author.name}${
-                    index + 1 < post.authors.length ? ',' : ''
-                  }`}
-                </span>
-              ))}
+              {postData.authors.map(
+                (author: { name: string }, index: number) => (
+                  <span key={index} className="mr-3">
+                    {`${author.name}${
+                      index + 1 < postData.authors.length ? ',' : ''
+                    }`}
+                  </span>
+                )
+              )}
             </p>
           </div>
           <div className="BlogPost__body">
             <PortableText
-              value={post.postContent}
+              value={postData.postContent}
               components={{
                 types: {
                   image: RichImage,

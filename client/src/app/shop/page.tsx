@@ -7,23 +7,23 @@ import ShopDescription from '../components/ShopDescription/ShopDescription'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
-    groq`*[_type == 'shop']{
+    groq`*[_type == 'shop'][0]{
       "seoTitle": seoTitle,
       "seoDescription": seoDescription,
       "seoImage": seoImage.asset->url
     }`
   )
   return {
-    title: `NexaTech | ${seoData[0].seoTitle}`,
-    description: seoData[0].seoDescription,
+    title: `NexaTech | ${seoData.seoTitle}`,
+    description: seoData.seoDescription,
     openGraph: {
-      title: `NexaTech | ${seoData[0].seoTitle}`,
-      description: seoData[0].seoDescription,
+      title: `NexaTech | ${seoData.seoTitle}`,
+      description: seoData.seoDescription,
       url: 'https://nexatech.com/',
       siteName: 'NexaTech',
       images: [
         {
-          url: seoData[0].seoImage,
+          url: seoData.seoImage,
           width: 800,
           height: 600,
         },
@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function page() {
   const pageData = await clientFetch(
-    groq`*[_type == 'shop']{
+    groq`*[_type == 'shop'][0]{
       "slides": slides[]{
         'altText': altText,
         'image': image.asset->url
@@ -54,12 +54,12 @@ export default async function page() {
         <section>
           <div className="pb-24">
             <div className="flex flex-col xl:flex-row mx-auto max-w-[700px] xl:max-w-none">
-              <ShopCarousel slides={pageData[0].slides} />
+              <ShopCarousel slides={pageData.slides} />
               <ShopDescription
-                productName={pageData[0].productName}
-                price={pageData[0].price}
-                salePrice={pageData[0].salePrice}
-                description={pageData[0].description}
+                productName={pageData.productName}
+                price={pageData.price}
+                salePrice={pageData.salePrice}
+                description={pageData.description}
               />
             </div>
           </div>

@@ -8,23 +8,23 @@ import { FaArrowRight } from 'react-icons/fa'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
-    groq`*[_type == 'homepage']{
+    groq`*[_type == 'homepage'][0]{
       "seoTitle": seoTitle,
       "seoDescription": seoDescription,
       "seoImage": seoImage.asset->url
     }`
   )
   return {
-    title: `NexaTech | ${seoData[0].seoTitle}`,
-    description: seoData[0].seoDescription,
+    title: `NexaTech | ${seoData.seoTitle}`,
+    description: seoData.seoDescription,
     openGraph: {
-      title: `NexaTech | ${seoData[0].seoTitle}`,
-      description: seoData[0].seoDescription,
+      title: `NexaTech | ${seoData.seoTitle}`,
+      description: seoData.seoDescription,
       url: 'https://nexatech.com/',
       siteName: 'NexaTech',
       images: [
         {
-          url: seoData[0].seoImage,
+          url: seoData.seoImage,
           width: 800,
           height: 600,
         },
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function page() {
   const homePageData = await clientFetch(
-    groq`*[_type == 'homepage']{
+    groq`*[_type == 'homepage'][0]{
       "heroTitle": heroTitle,
       "heroLinkUrl": heroLink.url,
       "heroLinkText": heroLink.text,
@@ -51,7 +51,7 @@ export default async function page() {
           <div className="w-full max-w-[300px] lg:max-w-[500px]">
             <Image
               priority
-              src={homePageData[0].heroImage}
+              src={homePageData.heroImage}
               alt="NexaHub"
               width={0}
               height={0}
@@ -61,14 +61,11 @@ export default async function page() {
           </div>
           <div className="mb-24">
             <h1 className="text-3xl lg:text-5xl text-left lg:text-center mt-0 lg:mt-36 mb-8 lg:mb-12 font-semibold">
-              {homePageData[0].heroTitle}
+              {homePageData.heroTitle}
             </h1>
-            <Link
-              href={homePageData[0].heroLinkUrl}
-              className="ArrowLink text-xl"
-            >
+            <Link href={homePageData.heroLinkUrl} className="ArrowLink text-xl">
               <FaArrowRight />{' '}
-              <span className="mx-2">{homePageData[0].heroLinkText}</span>{' '}
+              <span className="mx-2">{homePageData.heroLinkText}</span>{' '}
               <FaArrowRight />
             </Link>
           </div>
