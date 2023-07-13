@@ -46,6 +46,14 @@ export default {
       type: 'image',
       name: 'heroImage',
       validation: (Rule: { required: () => any }) => Rule.required(),
+      fields: [
+        {
+          name: 'altText',
+          type: 'string',
+          title: 'AltText',
+          validation: (Rule: { required: () => any }) => Rule.required(),
+        },
+      ],
     },
   ],
 }

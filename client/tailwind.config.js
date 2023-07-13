@@ -22,7 +22,6 @@ module.exports = {
         },
         themeGrey: {
           1: '#42464C',
-          2: '#212529',
         },
         themeWhite: {
           1: '#FFFFFF',

@@ -1,0 +1,7 @@
+.HomeHero {
+  @apply flex flex-col items-center md:flex-row-reverse gap-4 lg:gap-20 justify-center;
+}
+
+.HomeHero__title {
+  @apply text-3xl lg:text-5xl text-left lg:text-center mt-0 lg:mt-36 mb-8 lg:mb-12 font-semibold;
+}
