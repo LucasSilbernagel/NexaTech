@@ -7,4 +7,13 @@ import author from './author'
 import post from './post'
 import blog from './blog'
 
-export const schemaTypes = [navbar, homepage, banner, shop, about, author, post, blog]
+export const schemaTypes = [
+  navbar,
+  homepage,
+  banner,
+  shop,
+  about,
+  author,
+  post,
+  blog,
+]

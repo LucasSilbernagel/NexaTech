@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {defineField} from 'sanity'
+import { defineField } from 'sanity'
 
 export default {
   name: 'homepage',
@@ -9,22 +9,22 @@ export default {
     {
       type: 'string',
       name: 'seoTitle',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'text',
       name: 'seoDescription',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'image',
       name: 'seoImage',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'string',
       name: 'heroTitle',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     defineField({
       type: 'object',
@@ -33,19 +33,19 @@ export default {
         {
           type: 'string',
           name: 'text',
-          validation: (Rule: {required: () => any}) => Rule.required(),
+          validation: (Rule: { required: () => any }) => Rule.required(),
         },
         {
           type: 'string',
           name: 'url',
-          validation: (Rule: {required: () => any}) => Rule.required(),
+          validation: (Rule: { required: () => any }) => Rule.required(),
         },
       ],
     }),
     {
       type: 'image',
       name: 'heroImage',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
 }

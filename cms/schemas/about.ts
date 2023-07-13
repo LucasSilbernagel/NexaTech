@@ -7,24 +7,24 @@ export default {
     {
       type: 'string',
       name: 'seoTitle',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'text',
       name: 'seoDescription',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'image',
       name: 'seoImage',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'array',
       name: 'aboutUs',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
       of: [
-        {type: 'block'},
+        { type: 'block' },
         {
           title: 'Image',
           name: 'image',
@@ -34,7 +34,7 @@ export default {
               name: 'altText',
               type: 'string',
               title: 'AltText',
-              validation: (Rule: {required: () => any}) => Rule.required(),
+              validation: (Rule: { required: () => any }) => Rule.required(),
             },
           ],
         },

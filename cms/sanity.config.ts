@@ -1,7 +1,7 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision'
+import { schemaTypes } from './schemas'
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 
@@ -32,7 +32,9 @@ export default defineConfig({
             S.listItem()
               .title('Homepage')
               .id('homepage')
-              .child(S.document().schemaType('homepage').documentId('homepage')),
+              .child(
+                S.document().schemaType('homepage').documentId('homepage')
+              ),
             S.listItem()
               .title('Navbar')
               .id('navbar')
@@ -53,12 +55,13 @@ export default defineConfig({
   document: {
     actions: (input, context) =>
       singletonTypes.has(context.schemaType)
-        ? input.filter(({action}) => action && singletonActions.has(action))
+        ? input.filter(({ action }) => action && singletonActions.has(action))
         : input,
   },
 
   schema: {
     types: schemaTypes,
-    templates: (templates) => templates.filter(({schemaType}) => !singletonTypes.has(schemaType)),
+    templates: (templates) =>
+      templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
   },
 })

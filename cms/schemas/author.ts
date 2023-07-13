@@ -2,5 +2,5 @@ export default {
   name: 'author',
   type: 'document',
   title: 'Author',
-  fields: [{type: 'string', name: 'name'}],
+  fields: [{ type: 'string', name: 'name' }],
 }

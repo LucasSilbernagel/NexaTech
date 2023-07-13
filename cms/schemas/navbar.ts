@@ -7,7 +7,7 @@ export default {
       type: 'image',
       name: 'logo',
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
 }

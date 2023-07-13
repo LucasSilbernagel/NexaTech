@@ -7,17 +7,17 @@ export default {
     {
       type: 'string',
       name: 'seoTitle',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'text',
       name: 'seoDescription',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       type: 'image',
       name: 'seoImage',
-      validation: (Rule: {required: () => any}) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
 }
