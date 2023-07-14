@@ -1,0 +1,11 @@
+.BlogPostCard__inner {
+  @apply flex flex-wrap sm:flex-nowrap gap-4 justify-center sm:justify-start;
+}
+
+.BlogPostCard__date {
+  @apply max-w-max p-1 rounded-lg font-bold text-black mb-2 bg-gray-200;
+}
+
+.BlogPostCard__authors {
+  @apply font-bold mb-2 border-2 border-x-transparent border-t-transparent border-b-themeGreen-2 pb-1;
+}

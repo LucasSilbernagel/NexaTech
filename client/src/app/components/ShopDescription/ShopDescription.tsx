@@ -75,7 +75,7 @@ const ShopDescription = (props: IShopDescriptionProps) => {
               className="CartButton"
               onClick={() =>
                 alert(
-                  `Cart functionality is not set up, but if it was, this button would add the item to your cart!`
+                  `This demo site does not have a working shopping cart, but if it did, this button would add the item to your cart!`
                 )
               }
             >

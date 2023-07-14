@@ -1,18 +1,3 @@
-.Navbar__desktop-link:hover,
-.Navbar__mobile-link:hover,
-.Navbar__desktop-link:focus,
-.Navbar__mobile-link:focus {
-  @apply underline decoration-themeGreen-2 decoration-4 underline-offset-8;
-}
-
-.Navbar__mobile-link {
-  @apply px-12 relative;
-}
-
-.Navbar__mobile-link:after {
-  @apply absolute content-[''] h-[1px] w-[90vw] bg-gray-300 -bottom-2 left-4;
-}
-
 .MobileMenu__Button {
   @apply flex md:hidden flex-col items-end w-[25px] relative;
 }

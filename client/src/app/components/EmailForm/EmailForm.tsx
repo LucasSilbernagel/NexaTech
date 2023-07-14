@@ -7,7 +7,7 @@ export default function EmailForm() {
   const [email, setEmail] = useState<string>('')
   const handleSubmit = () => {
     alert(
-      `Email subscription functionality is not fully set up, but if it was, ${email} would be subscribed!`
+      `This demo app does not include an email list, but if it did, ${email} would be subscribed!`
     )
   }
   return (

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import './ShopCarousel.css'
 
 export default function ShopCarousel({
   slides,

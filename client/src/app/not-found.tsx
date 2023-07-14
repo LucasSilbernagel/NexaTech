@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { clientFetch } from './clientFetch'
 import { groq } from 'next-sanity'
 import { FaArrowRight } from 'react-icons/fa'
+import Seo from './Seo'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -12,25 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "seoImage": seoImage.asset->url
     }`
   )
-  return {
-    title: `NexaTech | 404`,
-    description: seoData.seoDescription,
-    openGraph: {
-      title: `NexaTech | 404`,
-      description: seoData.seoDescription,
-      url: 'https://nexatech.com/',
-      siteName: 'NexaTech',
-      images: [
-        {
-          url: seoData.seoImage,
-          width: 800,
-          height: 600,
-        },
-      ],
-      locale: 'en_US',
-      type: 'website',
-    },
-  }
+  return Seo('404', seoData.seoDescription, seoData.seoImage)
 }
 
 export default function NotFound() {

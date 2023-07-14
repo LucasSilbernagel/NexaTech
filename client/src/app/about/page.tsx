@@ -6,6 +6,7 @@ import { PortableText } from '@portabletext/react'
 import './About.css'
 import Link from 'next/link'
 import RichImage from '../components/RichImage/RichImage'
+import Seo from '../Seo'
 
 export async function generateMetadata(): Promise<Metadata> {
   const seoData = await clientFetch(
@@ -15,25 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "seoImage": seoImage.asset->url,
     }`
   )
-  return {
-    title: `NexaTech | ${seoData.seoTitle}`,
-    description: seoData.seoDescription,
-    openGraph: {
-      title: `NexaTech | ${seoData.seoTitle}`,
-      description: seoData.seoDescription,
-      url: 'https://nexatech.com/',
-      siteName: 'NexaTech',
-      images: [
-        {
-          url: seoData.seoImage,
-          width: 800,
-          height: 600,
-        },
-      ],
-      locale: 'en_US',
-      type: 'website',
-    },
-  }
+  return Seo(seoData.seoTitle, seoData.seoDescription, seoData.seoImage)
 }
 
 export default async function page() {
@@ -45,34 +28,32 @@ export default async function page() {
 
   return (
     <CommonWrapper>
-      <div>
-        <section className="py-8">
-          <div className="AboutUs">
-            <PortableText
-              value={pageData.aboutUs}
-              components={{
-                types: {
-                  image: RichImage,
+      <section className="py-8">
+        <div className="AboutUs">
+          <PortableText
+            value={pageData.aboutUs}
+            components={{
+              types: {
+                image: RichImage,
+              },
+              marks: {
+                link: ({ value, children }) => {
+                  const { href } = value
+                  return (
+                    <Link
+                      target={href.includes('http') ? '_blank' : ''}
+                      rel={href.includes('http') ? 'noopener noreferrer' : ''}
+                      href={href}
+                    >
+                      {children}
+                    </Link>
+                  )
                 },
-                marks: {
-                  link: ({ value, children }) => {
-                    const { href } = value
-                    return (
-                      <Link
-                        target={href.includes('http') ? '_blank' : ''}
-                        rel={href.includes('http') ? 'noopener noreferrer' : ''}
-                        href={href}
-                      >
-                        {children}
-                      </Link>
-                    )
-                  },
-                },
-              }}
-            />
-          </div>
-        </section>
-      </div>
+              },
+            }}
+          />
+        </div>
+      </section>
     </CommonWrapper>
   )
 }
