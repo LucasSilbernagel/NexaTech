@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "concurrently \"next dev\" \"cd studio && sanity start\"",
+    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
+    "start": "vercel dev",
+    "postinstall": "lerna bootstrap",
     "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore .",
     "test": "jest"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.4",
+    "@sanity/cli": "^3.14.2",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
@@ -36,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
     "babel-eslint": "^10.1.0",
+    "concurrently": "^8.2.0",
     "eslint": "^8.42.0",
     "eslint-config-lucas-silbernagel": "^1.2.0",
     "eslint-config-prettier": "^8.8.0",
@@ -45,6 +48,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
+    "lerna": "^7.1.4",
     "prettier": "^2.8.8"
   }
 }

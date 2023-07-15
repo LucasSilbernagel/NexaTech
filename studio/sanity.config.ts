@@ -10,7 +10,7 @@ const singletonTypes = new Set(['about', 'blog', 'homepage', 'navbar', 'shop'])
 
 export default defineConfig({
   name: 'default',
-  title: 'cms',
+  title: 'studio',
 
   projectId: 'k8h63h1t',
   dataset: 'production',
