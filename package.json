@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore .",
     "test": "jest"
   },
+  "workspaces": ["studio"],
   "dependencies": {
     "@portabletext/react": "^3.0.4",
     "@sanity/cli": "^3.14.2",
