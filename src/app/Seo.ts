@@ -5,7 +5,7 @@ export default function Seo(title: string, description: string, image: string) {
     openGraph: {
       title: `NexaTech | ${title}`,
       description: description,
-      url: 'https://nexatech.com/',
+      url: 'https://nexa-tech.vercel.app/',
       siteName: 'NexaTech',
       images: [
         {
