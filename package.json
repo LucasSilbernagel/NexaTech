@@ -40,7 +40,6 @@
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
     "babel-eslint": "^10.1.0",
-    "concurrently": "^8.2.0",
     "eslint": "^8.42.0",
     "eslint-config-lucas-silbernagel": "^1.2.0",
     "eslint-config-prettier": "^8.8.0",
