@@ -45,6 +45,10 @@ export default defineConfig({
               .title('Shop')
               .id('shop')
               .child(S.document().schemaType('shop').documentId('shop')),
+            S.listItem()
+              .title('Banner')
+              .id('banner')
+              .child(S.document().schemaType('banner').documentId('banner')),
 
             // Regular document types
             S.documentTypeListItem('author').title('Authors'),

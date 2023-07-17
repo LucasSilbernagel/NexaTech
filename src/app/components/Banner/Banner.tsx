@@ -1,21 +1,36 @@
-import { groq } from 'next-sanity'
+'use client'
 import Link from 'next/link'
-import { clientFetch } from '../../clientFetch'
 import { FaArrowRight } from 'react-icons/fa'
-import { headers } from 'next/headers'
+import customClient from '@/app/customClient'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-export default async function Banner() {
-  const bannerData = await clientFetch(
-    groq`*[_type == 'banner'][0]{
-      "bannerText": bannerText,
-      "bannerLink": bannerLink,
-    }`
-  )
+export default function Banner() {
+  const [bannerData, setBannerData] = useState({
+    bannerText: '',
+    bannerLink: { text: '', url: '' },
+  })
 
-  const headersList = headers()
-  const fullUrl = headersList.get('referer') || ''
+  const getData = async () => {
+    const data = await customClient.fetch(
+      `*[_type == 'banner'][0]{
+        "bannerText": bannerText,
+        "bannerLink": bannerLink,
+      }`
+    )
+    setBannerData(data)
+  }
 
-  if (bannerData.bannerText && !fullUrl.includes('shop')) {
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const pathname = usePathname()
+
+  const shouldRenderBanner =
+    bannerData.bannerText && pathname !== bannerData.bannerLink.url
+
+  if (shouldRenderBanner) {
     return (
       <div className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3 flex justify-center">
         <div>
