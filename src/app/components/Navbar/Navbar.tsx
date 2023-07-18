@@ -1,12 +1,10 @@
 'use client'
-import customClient from '../../customClient'
 import { useEffect, useState } from 'react'
 import './Navbar.css'
 import { useInView } from 'react-intersection-observer'
 import NavBarContents from './NavBarContents/NavBarContents'
 
-export default function Navbar() {
-  const [navBarData, setNavBarData] = useState<{ logo: string }>({ logo: '' })
+export default function Navbar({ logo }: { logo: string }) {
   const [currentScrollPos, setCurrentScrollPos] = useState<number>(0)
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0)
   const [isScrollNavVisible, setIsScrollNavVisible] = useState<boolean>(false)
@@ -20,17 +18,6 @@ export default function Navbar() {
     setPrevScrollPos(currentScrollPos)
     setIsScrollNavVisible(prevScrollPos > currentScrollPos && !inView)
   }
-
-  useEffect(() => {
-    customClient
-      .fetch(
-        `*[_type == 'navbar'][0]{
-      "logo": logo.asset->url
-    }`
-      )
-      .then((data) => setNavBarData(data))
-      .catch(console.error)
-  }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -57,14 +44,14 @@ export default function Navbar() {
     }
   }, [isMenuOpening])
 
-  if (navBarData.logo.length > 0) {
+  if (logo.length > 0) {
     return (
       <>
         <nav ref={ref} className="w-full bg-themeYellow-1">
           <NavBarContents
             isMenuOpen={isMenuOpen}
             setIsMenuOpening={setIsMenuOpening}
-            logo={navBarData.logo}
+            logo={logo}
             isMenuOpening={isMenuOpening}
             currentScrollPos={currentScrollPos}
             isScrollNavVisible={isScrollNavVisible}
@@ -78,7 +65,7 @@ export default function Navbar() {
           <NavBarContents
             isMenuOpen={isMenuOpen}
             setIsMenuOpening={setIsMenuOpening}
-            logo={navBarData.logo}
+            logo={logo}
             isMenuOpening={isMenuOpening}
             currentScrollPos={currentScrollPos}
             isScrollNavVisible={isScrollNavVisible}
