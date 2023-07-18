@@ -35,7 +35,7 @@ const BlogPost = (props: IBlogPostProps) => {
           ))}
         </p>
       </div>
-      <div className="BlogPost__body">
+      <div className="BlogPost__body" data-testid="blog-post-body">
         <PortableText
           value={postData.postContent}
           components={{

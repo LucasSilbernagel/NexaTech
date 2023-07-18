@@ -26,11 +26,13 @@ export default function EmailForm() {
           className="EmailForm__Input"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          data-testid="email-input"
         />
         <button
           type="submit"
           aria-label="subscribe"
           className="text-gray-500 text-xl absolute right-1 top-4"
+          data-testid="email-submit-button"
         >
           <FaArrowRight />
         </button>

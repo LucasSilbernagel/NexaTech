@@ -6,8 +6,12 @@ import './BlogPostCard.css'
 
 const BlogPostCard = ({ post }: { post: IBlogPost }) => {
   return (
-    <li className="mb-8">
-      <Link href={`/blog/${post.slug}`} className="Blog__link">
+    <li className="mb-8" data-testid="blog-post-card">
+      <Link
+        href={`/blog/${post.slug}`}
+        className="Blog__link"
+        data-testid="blog-post-link"
+      >
         <div className="BlogPostCard__inner">
           <div className="flex flex-col justify-center pl-3">
             <h2 className="uppercase font-bold mb-2 text-xl">{post.title}</h2>
@@ -28,6 +32,7 @@ const BlogPostCard = ({ post }: { post: IBlogPost }) => {
           </div>
           <div className="max-w-[205px] flex items-center">
             <Image
+              data-testid="blog-post-image"
               priority
               src={post.image}
               alt=""
