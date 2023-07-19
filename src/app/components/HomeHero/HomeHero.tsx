@@ -15,7 +15,7 @@ const HomeHero = (props: IHomeHeroProps) => {
   const { heroImage, heroImageAltText, heroTitle, heroLinkUrl, heroLinkText } =
     props
   return (
-    <section className="HomeHero">
+    <section className="HomeHero" data-testid="home-hero">
       <div className="w-full max-w-[300px] lg:max-w-[500px]">
         <Image
           priority
@@ -29,7 +29,11 @@ const HomeHero = (props: IHomeHeroProps) => {
       </div>
       <div className="mb-24">
         <h1 className="HomeHero__title">{heroTitle}</h1>
-        <Link href={heroLinkUrl} className="ArrowLink text-xl">
+        <Link
+          data-testid="hero-link"
+          href={heroLinkUrl}
+          className="ArrowLink text-xl"
+        >
           <FaArrowRight /> <span className="mx-2">{heroLinkText}</span>{' '}
           <FaArrowRight />
         </Link>

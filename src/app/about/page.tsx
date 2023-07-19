@@ -5,7 +5,7 @@ import CommonWrapper from '../components/CommonWrapper'
 import { PortableText } from '@portabletext/react'
 import './About.css'
 import Link from 'next/link'
-import RichImage from '../components/RichImage/RichImage'
+import RichImage from '../components/RichImage'
 import Seo from '../Seo'
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -44,7 +44,7 @@ const ShopDescription = (props: IShopDescriptionProps) => {
   ]
 
   return (
-    <div className="ShopDescription">
+    <div className="ShopDescription" data-testid="shop-description">
       <div>
         <div className="flex flex-col sm:flex-row gap-4 items-end mb-4">
           <div>
@@ -72,6 +72,7 @@ const ShopDescription = (props: IShopDescriptionProps) => {
           </div>
           <div className="bg-themeRed-1 text-white flex items-center w-full">
             <button
+              data-testid="cart-button"
               className="CartButton"
               onClick={() =>
                 alert(

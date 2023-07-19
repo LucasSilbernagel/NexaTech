@@ -22,9 +22,10 @@ const NavBarContents = (props: INavBarContentsProps) => {
     isScrollNavVisible,
   } = props
   return (
-    <div className="relative">
+    <div className="relative" data-testid="nav-bar-contents">
       {isMenuOpen && (
         <div
+          data-testid="menu-overlay"
           className="w-full h-screen absolute -top-36"
           onClick={() => setIsMenuOpening(!isMenuOpen)}
         ></div>
@@ -32,9 +33,10 @@ const NavBarContents = (props: INavBarContentsProps) => {
       <div className="flex justify-between items-center py-6 px-4 md:px-12 max-w-screen-2xl mx-auto">
         <ul className="flex justify-between gap-10 items-center uppercase font-semibold tracking-wide">
           <li>
-            <Link href="/" aria-label="home">
+            <Link href="/" aria-label="home" data-testid="logo-link">
               <div className="w-[150px]">
                 <Image
+                  data-testid="logo-image"
                   src={logo}
                   alt=""
                   width={0}
@@ -65,6 +67,7 @@ const NavBarContents = (props: INavBarContentsProps) => {
             </ul>
           </li>
           <li
+            data-testid="mobile-menu"
             className={`flex md:hidden bg-themeWhite-2 fixed z-30 text-2xl py-8 h-screen w-screen ${
               isMenuOpening
                 ? 'animate-slide-in right-0'
@@ -95,6 +98,7 @@ const NavBarContents = (props: INavBarContentsProps) => {
         <div className="flex items-center gap-8">
           <div className="text-3xl">
             <button
+              data-testid="shopping-cart-button"
               aria-label="shopping cart"
               onClick={() =>
                 alert('Sorry, this demo site does not include a shopping cart!')

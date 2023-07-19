@@ -5,6 +5,7 @@ import EmailForm from './EmailForm'
 describe('EmailForm', () => {
   test('renders correctly', () => {
     render(<EmailForm />)
+    expect(screen.getByTestId('email-form')).toBeInTheDocument()
     expect(
       screen.getByText('Get the inside scoop on all things NexaTech.')
     ).toBeInTheDocument()

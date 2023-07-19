@@ -9,7 +9,7 @@ import EmailForm from '../EmailForm/EmailForm'
 import './Footer.css'
 import Link from 'next/link'
 
-export default async function Footer() {
+export default function Footer() {
   return (
     <footer className="Footer">
       <div className="flex flex-col md:flex-row justify-between gap-12 max-w-screen-2xl mx-auto 2xl:px-10">
@@ -20,27 +20,27 @@ export default async function Footer() {
           <h3 className="font-semibold text-2xl mb-10">Follow us</h3>
           <ul className="SocialLinks">
             <li>
-              <a href="#" aria-label="Facebook">
+              <a href="#" aria-label="Facebook" data-testid="facebook-link">
                 <FaFacebookF />
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Instagram">
+              <a href="#" aria-label="Instagram" data-testid="instagram-link">
                 <FaInstagram />
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Twitter">
+              <a href="#" aria-label="Twitter" data-testid="twitter-link">
                 <FaTwitter />
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Pinterest">
+              <a href="#" aria-label="Pinterest" data-testid="pinterest-link">
                 <FaPinterestP />
               </a>
             </li>
             <li>
-              <a href="#" aria-label="Youtube">
+              <a href="#" aria-label="Youtube" data-testid="youtube-link">
                 <FaYoutube />
               </a>
             </li>

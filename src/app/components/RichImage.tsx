@@ -1,6 +1,6 @@
 import urlBuilder from '@sanity/image-url'
 import { getImageDimensions } from '@sanity/asset-utils'
-import customClient from '../../customClient'
+import customClient from '../customClient'
 
 /** Image component to be used in rich text blocks from the CMS */
 const RichImage = ({ value }: { value: { url: string; altText: string } }) => {

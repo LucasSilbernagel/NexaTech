@@ -47,7 +47,11 @@ export default function Navbar({ logo }: { logo: string }) {
   if (logo.length > 0) {
     return (
       <>
-        <nav ref={ref} className="w-full bg-themeYellow-1">
+        <nav
+          ref={ref}
+          className="w-full bg-themeYellow-1"
+          data-testid="static-navbar"
+        >
           <NavBarContents
             isMenuOpen={isMenuOpen}
             setIsMenuOpening={setIsMenuOpening}
@@ -61,6 +65,7 @@ export default function Navbar({ logo }: { logo: string }) {
           className={`duration-300 w-full fixed bg-themeWhite-2 z-10 ${
             isScrollNavVisible ? `top-0` : '-top-[100px]'
           }`}
+          data-testid="sticky-navbar"
         >
           <NavBarContents
             isMenuOpen={isMenuOpen}

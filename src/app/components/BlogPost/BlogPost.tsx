@@ -2,7 +2,7 @@ import { format } from 'date-fns'
 import './BlogPost.css'
 import { PortableText } from '@portabletext/react'
 import { TypedObject } from '@portabletext/types'
-import RichImage from '../RichImage/RichImage'
+import RichImage from '../RichImage'
 import Link from 'next/link'
 
 interface IBlogPostProps {

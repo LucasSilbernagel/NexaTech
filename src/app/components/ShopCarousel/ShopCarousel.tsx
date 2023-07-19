@@ -17,6 +17,7 @@ export default function ShopCarousel({
   ) =>
     hasPrev && (
       <button
+        data-testid="prev-button"
         onClick={clickHandler}
         title={label}
         className="text-white text-5xl absolute z-10 bottom-8 right-16"
@@ -32,6 +33,7 @@ export default function ShopCarousel({
   ) =>
     hasNext && (
       <button
+        data-testid="next-button"
         onClick={clickHandler}
         title={label}
         className="text-white text-5xl absolute bottom-8 right-0"
@@ -52,7 +54,10 @@ export default function ShopCarousel({
   }
 
   return (
-    <div className="w-full xl:w-7/12 bg-themeYellow-2">
+    <div
+      className="w-full xl:w-7/12 bg-themeYellow-2"
+      data-testid="shop-carousel"
+    >
       <Carousel {...carouselOptions} className="Carousel">
         {slides.map((slide) => {
           return (

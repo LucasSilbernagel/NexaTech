@@ -11,7 +11,7 @@ export default function EmailForm() {
     )
   }
   return (
-    <div className="EmailForm">
+    <div className="EmailForm" data-testid="email-form">
       <h3 className="font-semibold text-2xl mb-8">
         Get the inside scoop on all things NexaTech.
       </h3>
