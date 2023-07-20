@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './Navbar.css'
 import { useInView } from 'react-intersection-observer'
 import NavBarContents from './NavBarContents/NavBarContents'
+import ClientOnly from '../ClientOnly'
 
 export default function Navbar({ logo }: { logo: string }) {
   const [currentScrollPos, setCurrentScrollPos] = useState<number>(0)
@@ -52,14 +53,16 @@ export default function Navbar({ logo }: { logo: string }) {
           className="w-full bg-themeYellow-1"
           data-testid="static-navbar"
         >
-          <NavBarContents
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpening={setIsMenuOpening}
-            logo={logo}
-            isMenuOpening={isMenuOpening}
-            currentScrollPos={currentScrollPos}
-            isScrollNavVisible={isScrollNavVisible}
-          />
+          <ClientOnly>
+            <NavBarContents
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpening={setIsMenuOpening}
+              logo={logo}
+              isMenuOpening={isMenuOpening}
+              currentScrollPos={currentScrollPos}
+              isScrollNavVisible={isScrollNavVisible}
+            />
+          </ClientOnly>
         </nav>
         <nav
           className={`duration-300 w-full fixed bg-themeWhite-2 z-10 ${
@@ -67,14 +70,16 @@ export default function Navbar({ logo }: { logo: string }) {
           }`}
           data-testid="sticky-navbar"
         >
-          <NavBarContents
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpening={setIsMenuOpening}
-            logo={logo}
-            isMenuOpening={isMenuOpening}
-            currentScrollPos={currentScrollPos}
-            isScrollNavVisible={isScrollNavVisible}
-          />
+          <ClientOnly>
+            <NavBarContents
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpening={setIsMenuOpening}
+              logo={logo}
+              isMenuOpening={isMenuOpening}
+              currentScrollPos={currentScrollPos}
+              isScrollNavVisible={isScrollNavVisible}
+            />
+          </ClientOnly>
         </nav>
       </>
     )

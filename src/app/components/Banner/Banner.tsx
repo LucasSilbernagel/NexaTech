@@ -17,7 +17,10 @@ export default function Banner(props: IBannerProps) {
 
   if (shouldRenderBanner) {
     return (
-      <div className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3 flex justify-center">
+      <div
+        id="banner"
+        className="bg-themeGreen-1 text-white text-lg text-center py-6 px-3 flex justify-center"
+      >
         <div>
           <p className="flex justify-center text-left">{bannerText} </p>
         </div>

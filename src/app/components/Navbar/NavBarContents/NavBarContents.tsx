@@ -21,6 +21,16 @@ const NavBarContents = (props: INavBarContentsProps) => {
     currentScrollPos,
     isScrollNavVisible,
   } = props
+
+  const getMobileMenuPositionAtTopOfPage = () => {
+    if (
+      typeof document !== 'undefined' &&
+      typeof document.getElementById('banner')?.offsetHeight !== 'undefined'
+    ) {
+      return 'top-[170px]'
+    } else return 'top-[92px]'
+  }
+
   return (
     <div className="relative" data-testid="nav-bar-contents">
       {isMenuOpen && (
@@ -75,22 +85,36 @@ const NavBarContents = (props: INavBarContentsProps) => {
                 ? 'animate-slide-in right-0'
                 : 'animate-slide-out -right-[770px]'
             } ${isMenuOpen ? 'visible' : 'invisible'} ${
-              currentScrollPos > 0 ? 'top-[92px]' : 'top-[170px]'
+              currentScrollPos > 0
+                ? 'top-[92px]'
+                : getMobileMenuPositionAtTopOfPage()
             }`}
           >
             <ul className="flex flex-col gap-12">
               <li>
-                <Link href="/shop" className="Navbar__mobile-link">
+                <Link
+                  href="/shop"
+                  className="Navbar__mobile-link"
+                  onClick={() => setIsMenuOpening(!isMenuOpen)}
+                >
                   Shop
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="Navbar__mobile-link">
+                <Link
+                  href="/blog"
+                  className="Navbar__mobile-link"
+                  onClick={() => setIsMenuOpening(!isMenuOpen)}
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="Navbar__mobile-link">
+                <Link
+                  href="/about"
+                  className="Navbar__mobile-link"
+                  onClick={() => setIsMenuOpening(!isMenuOpen)}
+                >
                   About
                 </Link>
               </li>
