@@ -40,6 +40,7 @@ const BlogPostCard = ({ post }: { post: IBlogPost }) => {
               height={0}
               sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
+              placeholder="empty"
             />
           </div>
         </div>
