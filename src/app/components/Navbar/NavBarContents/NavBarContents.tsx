@@ -36,6 +36,7 @@ const NavBarContents = (props: INavBarContentsProps) => {
             <Link href="/" aria-label="home" data-testid="logo-link">
               <div className="w-[150px]">
                 <Image
+                  priority
                   data-testid="logo-image"
                   src={logo}
                   alt=""
