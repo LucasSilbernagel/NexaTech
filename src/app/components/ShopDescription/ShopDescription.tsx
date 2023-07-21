@@ -58,7 +58,9 @@ const ShopDescription = (props: IShopDescriptionProps) => {
                 ${price}
               </span>
               {salePrice && (
-                <span className="text-themeRed-1">${salePrice}</span>
+                <span className="text-themeRed-1 bg-black p-1 rounded-sm">
+                  ${salePrice}
+                </span>
               )}
             </p>
           </div>
@@ -70,7 +72,7 @@ const ShopDescription = (props: IShopDescriptionProps) => {
           <div className="bg-white py-4 px-6">
             <p>${salePrice ? salePrice : price}</p>
           </div>
-          <div className="bg-themeRed-1 text-white flex items-center w-full">
+          <div className="bg-themeRed-1 text-black flex items-center w-full">
             <button
               data-testid="cart-button"
               className="CartButton"
@@ -86,7 +88,7 @@ const ShopDescription = (props: IShopDescriptionProps) => {
           </div>
         </div>
         {salePrice && (
-          <div className="text-center mt-4 bg-white text-themeRed-1 py-2">
+          <div className="text-center mt-4 bg-white text-black py-2">
             <p>You save ${price - salePrice}</p>
           </div>
         )}
