@@ -66,7 +66,7 @@ export default function Navbar({ logo }: { logo: string }) {
         </nav>
         <nav
           className={`duration-300 w-full fixed bg-themeWhite-2 z-10 ${
-            isScrollNavVisible ? `top-0` : '-top-[100px]'
+            isScrollNavVisible ? `top-0 visible` : '-top-[100px] invisible'
           }`}
           data-testid="sticky-navbar"
         >

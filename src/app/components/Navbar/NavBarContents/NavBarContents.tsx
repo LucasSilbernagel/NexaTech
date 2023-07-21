@@ -78,48 +78,6 @@ const NavBarContents = (props: INavBarContentsProps) => {
               </li>
             </ul>
           </li>
-          <li
-            data-testid="mobile-menu"
-            className={`flex md:hidden bg-themeWhite-2 fixed z-30 text-2xl py-8 h-screen w-screen ${
-              isMenuOpening
-                ? 'animate-slide-in right-0'
-                : 'animate-slide-out -right-[770px]'
-            } ${isMenuOpen ? 'visible' : 'invisible'} ${
-              currentScrollPos > 0
-                ? 'top-[92px]'
-                : getMobileMenuPositionAtTopOfPage()
-            }`}
-          >
-            <ul className="flex flex-col gap-12">
-              <li>
-                <Link
-                  href="/shop"
-                  className="Navbar__mobile-link"
-                  onClick={() => setIsMenuOpening(!isMenuOpen)}
-                >
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="Navbar__mobile-link"
-                  onClick={() => setIsMenuOpening(!isMenuOpen)}
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="Navbar__mobile-link"
-                  onClick={() => setIsMenuOpening(!isMenuOpen)}
-                >
-                  About
-                </Link>
-              </li>
-            </ul>
-          </li>
         </ul>
         <div className="flex items-center gap-8">
           <div className="text-3xl">
@@ -153,6 +111,48 @@ const NavBarContents = (props: INavBarContentsProps) => {
               <span></span>
             </button>
           </div>
+        </div>
+        <div
+          data-testid="mobile-menu"
+          className={`flex md:hidden bg-themeWhite-2 fixed z-30 text-2xl py-8 h-screen w-screen ${
+            isMenuOpening
+              ? 'animate-slide-in right-0'
+              : 'animate-slide-out -right-[770px]'
+          } ${isMenuOpen ? 'visible' : 'invisible'} ${
+            currentScrollPos > 0
+              ? 'top-[92px]'
+              : getMobileMenuPositionAtTopOfPage()
+          }`}
+        >
+          <ul className="flex flex-col gap-12">
+            <li>
+              <Link
+                href="/shop"
+                className="Navbar__mobile-link"
+                onClick={() => setIsMenuOpening(!isMenuOpen)}
+              >
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blog"
+                className="Navbar__mobile-link"
+                onClick={() => setIsMenuOpening(!isMenuOpen)}
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="Navbar__mobile-link"
+                onClick={() => setIsMenuOpening(!isMenuOpen)}
+              >
+                About
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
