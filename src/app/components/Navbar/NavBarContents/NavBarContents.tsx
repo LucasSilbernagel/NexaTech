@@ -140,6 +140,7 @@ const NavBarContents = (props: INavBarContentsProps) => {
           >
             <button
               aria-expanded={isMenuOpening}
+              aria-label={isMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
               onClick={() => setIsMenuOpening(!isMenuOpen)}
               className={`MobileMenu__Button ${
                 isMenuOpening ? `MobileMenu__Button--open` : ''
