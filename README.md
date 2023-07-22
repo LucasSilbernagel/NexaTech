@@ -2,7 +2,7 @@
 
 Website for a fictional smart home automation product company.
 
-img
+![nexaTech](https://github.com/LucasSilbernagel/NexaTech/assets/57023164/aa45e652-fce3-47db-bb8c-9127e3a7d55e)
 
 ## Live Link
 
