@@ -44,7 +44,7 @@ Once you have confirmed that node is installed, `cd` into a folder on your compu
 
 Then `cd` into the project folder and open it in your code editor. For Visual Studio Code:
 
-`cd nexatech`
+`cd NexaTech`
 `code .`
 
 ### Create a Sanity project
