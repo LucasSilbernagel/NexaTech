@@ -47,12 +47,6 @@ Then `cd` into the project folder and open it in your code editor. For Visual St
 `cd NexaTech`
 `code .`
 
-### Create a Sanity project
-
-- Visit https://www.sanity.io/ and create an account if you don't already have one.
-- Create a new project and make a note of the project ID.
-- In your code editor, search for `projectId` and replace the value there with your own Sanity project ID. This should be done in three files: `sanity.cli.ts`, `sanity.config.ts`, and `customClient.ts`.
-
 ### Install dependencies
 
 To install all of the required dependencies, run `npm install`.
@@ -61,6 +55,10 @@ To install all of the required dependencies, run `npm install`.
 
 - To start up the app locally, run `npm run dev` in your terminal. Your terminal should indicate a `localhost` URL at which you can view the app in your browser, most likely http://localhost:3000/.
 - To add and edit content in Sanity Studio, visit http://localhost:3000/studio.
+  - Note that you won't have access to sign into my Sanity studio, you will have to generate your own project ID:
+    - Visit https://www.sanity.io/ and create an account if you don't already have one.
+    - Follow the instructions to create a new project and make a note of the project ID.
+    - In your code editor, search for `projectId` and replace the value there with your own Sanity project ID. This should be done in three files: `sanity.cli.ts`, `sanity.config.ts`, and `customClient.ts`.
 
 ## Testing
 
