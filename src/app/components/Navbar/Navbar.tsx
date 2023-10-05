@@ -43,7 +43,7 @@ export default function Navbar({ logo }: { logo: string }) {
         setIsMenuOpen(false)
       }, 500)
     }
-  }, [isMenuOpening])
+  }, [isMenuOpening, isMenuOpen])
 
   if (logo.length > 0) {
     return (
